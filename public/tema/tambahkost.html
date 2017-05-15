@@ -17,6 +17,13 @@
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
 
+
+    <link href="assets/css/jquery.fileuploader.css" rel="stylesheet"/>
+    <link href="assets/css/jquery.fileuploader-theme-thumbnails.css" rel="stylesheet"/>
+
+
+
+
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
@@ -33,72 +40,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-
-    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
-                </a>
-            </div>
-
-            <ul class="nav">
-                <li>
-                    <a href="dashboard.html">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="user.html">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="table.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
-
-    <div class="main-panel">
+    <div class="main-panel" style="left: 0; width: 100%;">
 		<nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -190,60 +132,109 @@
                             </div>
                             <div class="content">
                                 <form>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label class="control-label">Judul</label>
-                                            <input type="text" name="judul" value="" class="form-control" placeholder="Judul">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label" >Fasilitas</label>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_tv" value="">TV</label>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="control-label">Judul</label>
+                                                <input type="text" name="judul" value="" class="form-control" placeholder="Judul">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label" >Fasilitas</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_tv" value="">TV</label>
+                                                    </div>
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_ac" value="">AC</label>
+                                                    </div>
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_km" value="">Kamar Mandi Dalam</label>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_ac" value="">AC</label>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_wifi" value="">WIFI</label>
+                                                    </div>
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_meja" value="">Meja</label>
+                                                    </div>
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kursi</label>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_km" value="">Kamar Mandi Dalam</label>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">                              
+                                                        <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kulkas" value="">Kulkas</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_wifi" value="">WIFI</label>
-                                                </div>
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_meja" value="">Meja</label>
-                                                </div>
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kursi</label>
-                                                </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Ketersediaan</label>
+                                                <input type="text" name="ketersediaan" value="" class="form-control" placeholder="Ketersediaan">
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">                              
-                                                    <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kulkas" value="">Kulkas</label>
-                                                </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Harga</label>
+                                                <input type="text" name="harga" value="" class="form-control" placeholder="Harga">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Penyewaan</label>
+                                                <select class="form-control" name="penyewaan">
+                                                    <option value="">Tipe Waktu Penyewaan</option>
+                                                    <option value="1">Bulanan</option>
+                                                    <option value="2">Tahunan</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Gender</label>
+                                                <select class="form-control" name="penyewaan">
+                                                    <option value="">Pilihan Gender</option>
+                                                    <option value="1">Laki-laki</option>
+                                                    <option value="2">Perempuan</option>
+                                                    <option value="3">Campur</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Provinsi</label>
+                                                <select name="provinsi" class="form-control">
+                                                    <option value="">Provinsi</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Kota</label>
+                                                <select name="kota" class="form-control">
+                                                    <option value="">Kota</option>
+                                                </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Media</label>
+                                                <div class="form-controls"> 
+                                                    <div id="list-media">
+                                                        
+                                                    </div>
+                                                    <input type="file" class="image-uploads" name="media[]" multiple accept=".jpg,.jpeg,.png,.gif" /> </div>
+                                                </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Lokasi Peta</label>
+                                                <div id="location-picker" style="height: 400px; overflow: hidden;"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="location-address" class="form-control" name="lokasi" placeholder="Enter a location" autocomplete="on"> 
+                                            </div>
+                                            <div class="form-group">
+                                                <input hidden id="location-lat" name="latitude">
+                                            </div>
+                                            <div class="form-group">
+                                                <input hidden id="location-lon" name="longitude"> 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <button type="submit" class="btn pull-right btn-info btn-fill">Simpan</button>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Lokasi Peta</label>
-                                        <input type="text" id="location-address" class="form-control" name="lokasi" placeholder="Enter a location" autocomplete="on"> 
-                                    </div>
-                                    <div class="form-group">
-                                        <div id="location-picker" class="span11" style="height: 400px; overflow: hidden;"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Current Latitude</label>
-                                        <input id="location-lat" class="form-control" name="latitude">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Current Longitude</label>
-                                        <input id="location-lon" class="form-control" name="longitude"> 
-                                    </div>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -308,6 +299,11 @@
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!-- Jquery Form Upload -->
+    <script src="assets/js/jquery.fileuploader.min.js"></script>
+    <script src="assets/js/jquery.fileuploader.custom.js"></script>
+    
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>
