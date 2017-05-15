@@ -28,6 +28,21 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <style type="text/css">
+        .panel-kost{
+            margin-bottom: 1em;
+            padding: 10px;
+        }
+
+        .btn-circle {
+            width: 40px;
+            height: 40px;
+            padding: 6px 0px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 13px;
+        }
+    </style>
 
 </head>
 <body>
@@ -42,78 +57,97 @@
 
     -->
 
-    	<div class="sidebar-wrapper">
-            
-            
-            <div class="logo" style="background-color:white;">
-                <a href="#" class="pe-7s-angle-left" style="color:black;display:inline-block;"></a>
-                <a href="search.html" class="simple-text" style="color:black;display:inline-block;">
+    	<div class="sidebar-wrapper" style="overflow: hidden;">
+            <div class="logo" style="">
+                <a href="#" style="color:white;display:inline-block;"><i class="pe-7s-angle-left" style="font-size: 20px; font-weight: bolder;"></i></a>
+                <a href="search.html" class="simple-text" style="color:white;display:inline-block;">
                     Kost.in
                 </a>
             </div>
-            
-
-            <ul class="nav">
-                <li>
-                    <h5>&nbsp;&nbsp;Lokasi</h5>
-                </li>
-                <li>
-                    <select name="" class="form-control" style="width:95%;margin: auto; padding: 10px; margin:5px;">
-                        <option value="">Provinsi</option>
-                    </select>
-                </li>
-                <li>
-                    <select name="" class="form-control" style="width:95%;margin: auto; padding: 10px; margin:5px;">
-                        <option value="">Kota</option>
-                    </select>
-                </li>
-                <li>
-                    <p></p>
-                </li>
-                <li>
-                    <h5><br>&nbsp;&nbsp;Gender</h5>
-                </li>
-                <li>
-                    <select name="" class="form-control" style="width:95%;margin: auto; padding: 10px; margin:5px;">
-                        <option value="">Laki-laki</option>
-                        <option value="">Perempuan</option>
-                    </select>
-                </li>
-                <li>
-                    <h5><br>&nbsp;&nbsp;Durasi penyewaan</h5>
-                </li>
-                <li>
-                    <select name="" class="form-control" style="width:95%;margin: auto; padding: 10px; margin:5px;">
-                        <option value="">Bulanan</option>
-                        <option value="">Per 6 bulan</option>
-                        <option value="">Tahunan</option>
-                    </select>
-                </li>
-                <li>
-                    <h5><br>&nbsp;&nbsp;Harga</h5>
-                </li>
-                <li>
-                    <select name="" class="form-control" style="width:95%;margin:auto;padding:10px;margin:5px;">
-                        <option value="">< 1.000.000</option>
-                        <option value="">1.000.000</option>
-                        <option value="">>1.000.000</option>
-                    </select>
-                </li>
-                <li>
-                    <h5><br>&nbsp;&nbsp;Fasilitas</h5>
-                </li>
-                <li>
-                    <div style="background-color:white; color:black; width:95%; margin:auto; padding:10px; margin:5px; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px;">
-                        <input type="checkbox" name="vehicle1" value="Bike" style=";padding:10px;margin:5px;">AC
-                        <br>
-                        <input type="checkbox" name="vehicle1" value="Bike" style=";padding:10px;margin:5px;">Kamar mandi dalam
-                        <br><input type="checkbox" name="vehicle1" value="Bike" style=";padding:10px;margin:5px;">TV
-                        <br>
+            <div style="padding: 10px;">
+                <h4>Hasil Pencarian</h4>
+                <form action="" method="get">
+                    <div class="form-group">
+                        <label class="control-label">Provinsi</label>
+                        <select name="provinsi" class="form-control">
+                            <option value="">Provinsi</option>
+                        </select>
                     </div>
-                    
-                </li>
-            </ul>
-            <a href="#" style="background-color:#3472F7;color: white;padding:10px;margin:5px;" class="pull-right btn btn-primary">Cari</a>
+                    <div class="form-group">
+                        <label class="control-label">Kota</label>
+                        <select name="kota" class="form-control">
+                            <option value="">Kota</option>
+                        </select>
+                    </div>
+                    <a href="#" id="moreSearch" title="" data-toggle="modal" data-target="#customModal">Custom Search</a>
+                    <a href="" class="btn btn-primary btn-fill pull-right">Cari</a>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+            <div style="border-top: 1px solid; margin-top: 10px; padding: 10px;overflow-x: visible;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Harga</label>
+                            <select name="" class="form-control">
+                                <option value="">Pilih Range Harga</option>
+                                <option value="">< 1.000.000</option>
+                                <option value="">1.000.000</option>
+                                <option value="">>1.000.000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Gender</label>
+                            <select class="form-control" name="penyewaan">
+                                <option value="">Pilihan Gender</option>
+                                <option value="1">Laki-laki</option>
+                                <option value="2">Perempuan</option>
+                                <option value="3">Campur</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Penyewaan</label>
+                            <select class="form-control" name="penyewaan">
+                                <option value="">Tipe Waktu Penyewaan</option>
+                                <option value="1">Bulanan</option>
+                                <option value="2">Tahunan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="control-label">Fasilitas</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_tv" value="">TV</label>
+                        </div>
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_ac" value="">AC</label>
+                        </div>
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_wifi" value="">WIFI</label>
+                        </div>
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_km" value="">Kamar Mandi Dalam</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_meja" value="">Meja</label>
+                        </div>
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kursi</label>
+                        </div>
+                        <div class="form-group">                              
+                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kulkas</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
     	</div>
     </div>
 
@@ -129,10 +163,31 @@
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
                                 <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
+								<p class="hidden-lg hidden-md">Hasil Pencarian</p>
                             </a>
                         </li>
                         
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+                                        Dropdown
+                                        <b class="caret"></b>
+                                    </p>
+
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
+                        <li class="separator hidden-lg hidden-md"></li>
                     </ul>
                 </div>
             </div>
@@ -145,76 +200,309 @@
                     <div class="col-md-4" style="width:100%;">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
                             </div>
                             <div class="content">
-                                <div class="card card-plain">
-                                    
-                                    <div class="content table-responsive table-full-width">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Salary</th>
-                                                <th>Country</th>
-                                                <th>City</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Dakota Rice</td>
-                                                    <td>$36,738</td>
-                                                    <td>Niger</td>
-                                                    <td>Oud-Turnhout</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Minerva Hooper</td>
-                                                    <td>$23,789</td>
-                                                    <td>Curaçao</td>
-                                                    <td>Sinaai-Waas</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Sage Rodriguez</td>
-                                                    <td>$56,142</td>
-                                                    <td>Netherlands</td>
-                                                    <td>Baileux</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Philip Chaney</td>
-                                                    <td>$38,735</td>
-                                                    <td>Korea, South</td>
-                                                    <td>Overland Park</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Doris Greene</td>
-                                                    <td>$63,542</td>
-                                                    <td>Malawi</td>
-                                                    <td>Feldkirchen in Kärnten</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>6</td>
-                                                    <td>Mason Porter</td>
-                                                    <td>$78,615</td>
-                                                    <td>Chile</td>
-                                                    <td>Gloucester</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <img src="assets/img/sidebar-5.jpg" class="img-responsive img-thumbnail" alt="">
+                                            </div>
+                                            <h3>Kamar Kost 1 Putra</h3>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>TV</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>AC</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                           <p>Kamar Mandi Dalam</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>Wifi</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Meja</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Kursi</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                            <p>Kulkas</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="col-md-4">
+                                        <h4 class="pull-right" style="margin:0"><i class="pe-7s-medal" style="color:orange"></i> Rekomendasi</h4>
+                                        <div class="col-md-12">
+                                            <h4>Sisa : 3</h4>
+                                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+                                                <p>Rp. 10.000.000/Tahun</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row" >
+                    <div class="col-md-4" style="width:100%;">
+                        <div class="card">
+                            <div class="header">
+                            </div>
+                            <div class="content">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <img src="assets/img/sidebar-5.jpg" class="img-responsive img-thumbnail" alt="">
+                                            </div>
+                                            <h3>Kamar Kost 1 Putra</h3>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>TV</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>AC</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                           <p>Kamar Mandi Dalam</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>Wifi</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Meja</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Kursi</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                            <p>Kulkas</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-12">
+                                            <h4>Sisa : 3</h4>
+                                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+                                                <p>Rp. 10.000.000/Tahun</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-4" style="width:100%;">
+                        <div class="card">
+                            <div class="header">
+                            </div>
+                            <div class="content">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <img src="assets/img/sidebar-5.jpg" class="img-responsive img-thumbnail" alt="">
+                                            </div>
+                                            <h3>Kamar Kost 1 Putra</h3>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>TV</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>AC</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                           <p>Kamar Mandi Dalam</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>Wifi</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Meja</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Kursi</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                            <p>Kulkas</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-12">
+                                            <h4>Sisa : 3</h4>
+                                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+                                                <p>Rp. 10.000.000/Tahun</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-4" style="width:100%;">
+                        <div class="card">
+                            <div class="header">
+                            </div>
+                            <div class="content">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <img src="assets/img/sidebar-5.jpg" class="img-responsive img-thumbnail" alt="">
+                                            </div>
+                                            <h3>Kamar Kost 1 Putra</h3>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>TV</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>AC</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                           <p>Kamar Mandi Dalam</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>Wifi</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Meja</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Kursi</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                            <p>Kulkas</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-12">
+                                            <h4>Sisa : 3</h4>
+                                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+                                                <p>Rp. 10.000.000/Tahun</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-4" style="width:100%;">
+                        <div class="card">
+                            <div class="header">
+                            </div>
+                            <div class="content">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <img src="assets/img/sidebar-5.jpg" class="img-responsive img-thumbnail" alt="">
+                                            </div>
+                                            <h3>Kamar Kost 1 Putra</h3>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>TV</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>AC</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                           <p>Kamar Mandi Dalam</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                           <p>Wifi</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Meja</p>
+                                                        </div>
+                                                        <div class="form-group">                              
+                                                            <p>Kursi</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">                              
+                                                            <p>Kulkas</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-12">
+                                            <h4>Sisa : 3</h4>
+                                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+                                                <p>Rp. 10.000.000/Tahun</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer text-right">
+                    <ul class="pagination">
+                        <li class="disabled"><span>«</span>
+                        </li>
+                        <li class="active"><span>1</span>
+                        </li>
+                        <li><a href="http://10.151.36.5:6969/kucinglucu/oprec/9fae20e0-2528-11e7-91c2-4fddc4684aa3?page=2">2</a>
+                        </li>
+                        <li><a href="http://10.151.36.5:6969/kucinglucu/oprec/9fae20e0-2528-11e7-91c2-4fddc4684aa3?page=3">3</a>
+                        </li>
+                        <li><a href="http://10.151.36.5:6969/kucinglucu/oprec/9fae20e0-2528-11e7-91c2-4fddc4684aa3?page=2" rel="next">»</a>
+                        </li>
+                    </ul>
+                </div>  
+            </div>
         </div>
-
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -246,6 +534,50 @@
                 </p>
             </div>
         </footer>
+    </div>
+</div>
+<!-- Modal -->
+<div id="customModal" class="modal fade " role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Custom Search</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="get">
+                    <div class="form-group">
+                        <label class="control-label">Provinsi</label>
+                        <select name="provinsi" class="form-control">
+                            <option value="">Provinsi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Kota</label>
+                        <select name="kota" class="form-control">
+                            <option value="">Kota</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Kata Kunci</label>
+                        <input type="text" class="form-control" name="keyword" value="" placeholder="Kata Kunci">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><input type="checkbox" id="radius" name="radius" value=""> Pencarian berdasarkan lokasi terdekat</label>
+                    </div>
+                    <div id="fieldRadius" class="form-group hidden">
+                        <label class="control-label">Radius</label>
+                        <input type="text" class="form-control" name="jarak_radius" value="" placeholder="Radius (km)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-fill" data-dismiss="modal">Cancel</button>
+                <a href="" class="btn btn-primary btn-fill pull-right">Cari</a>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -291,6 +623,18 @@
             });
 
     	});
+
+        $(document).on('click', '#radius', function(e){
+            var flag = $(this).is(':checked');
+            if(flag)
+            {
+                $('#fieldRadius').removeClass('hidden');
+            }
+            else
+            {
+                $('#fieldRadius').addClass('hidden');
+            }
+        });
 	</script>
 
 </html>
