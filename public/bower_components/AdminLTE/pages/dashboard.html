@@ -17,8 +17,18 @@
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
 			 folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+	<link rel="stylesheet" href="../dist/css/sweetalert2.min.css">
 	<style>
 		.main-sidebar { background-color: white !important }
+		.btn-circle {
+            width: 40px;
+            height: 40px;
+            padding: 6px 0px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 13px;
+            color: white;
+        }
 	</style>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,20 +38,21 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="hold-transition skin-red-light sidebar-mini">
+<body class="hold-transition skin-red-light layout-top-nav">
 <div class="wrapper">
 
 	<header class="main-header">
 		<!-- Logo -->
-		<div class="logo">
-			<a href="#" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
-	        <a href="search.html" class="" style="color: white">
-	            Kost.in
-	        </a>
-		</div>
 		<!-- Header Navbar: style can be found in header.less -->
 		<nav class="navbar navbar-static-top">
 			<!-- Sidebar toggle button-->
+			<div class="logo">
+				<a href="#" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
+		        <a href="search.html" class="" style="color: white">
+		            Kost.in
+		        </a>
+			</div>
+
 			<div class="navbar-custom-menu">
 				<ul class="nav navbar-nav">
 					<!-- User Account: style can be found in dropdown.less -->
@@ -91,98 +102,6 @@
 		</nav>
 	</header>
 	<!-- Left side column. contains the logo and sidebar -->
-	<aside class="main-sidebar" >
-		<!-- sidebar: style can be found in sidebar.less -->
-		<section class="sidebar">
-			<!-- Sidebar user panel -->
-			<div class="user-panel" style="">
-                <h4>Hasil Pencarian</h4>
-                <form action="" method="get">
-                    <div class="form-group">
-                        <label class="control-label">Provinsi</label>
-                        <select name="provinsi" class="form-control">
-                            <option value="">Provinsi</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Kota</label>
-                        <select name="kota" class="form-control">
-                            <option value="">Kota</option>
-                        </select>
-                    </div>
-                    <a href="#" id="moreSearch" title="" data-toggle="modal" data-target="#customModal">Custom Search</a>
-                    <a href="" class="btn btn-primary pull-right" style="color: white">Cari</a>
-                </form>
-            </div>
-            <div class="clearfix"></div>
-            <div style="border-top: 1px solid; margin-top: 10px; padding: 10px;">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label class="control-label">Harga</label>
-                            <select name="" class="form-control">
-                                <option value="">Pilih Range Harga</option>
-                                <option value="">< 1.000.000</option>
-                                <option value="">1.000.000</option>
-                                <option value="">>1.000.000</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Gender</label>
-                            <select class="form-control" name="penyewaan">
-                                <option value="">Pilihan Gender</option>
-                                <option value="1">Laki-laki</option>
-                                <option value="2">Perempuan</option>
-                                <option value="3">Campur</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Penyewaan</label>
-                            <select class="form-control" name="penyewaan">
-                                <option value="">Tipe Waktu Penyewaan</option>
-                                <option value="1">Bulanan</option>
-                                <option value="2">Tahunan</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <label class="control-label">Fasilitas</label>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_tv" value="">TV</label>
-                        </div>
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_ac" value="">AC</label>
-                        </div>
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_wifi" value="">WIFI</label>
-                        </div>
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_km" value="">Kamar Mandi Dalam</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_meja" value="">Meja</label>
-                        </div>
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kursi</label>
-                        </div>
-                        <div class="form-group">                              
-                            <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kulkas</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		</section>
-		<!-- /.sidebar -->
-	</aside>
-
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
@@ -246,13 +165,19 @@
 	                        </div>
 	                    </div>
 	                    <div class="col-md-4">
-	                        <h4 class="pull-right" style="margin:0"><i class="fa fa-trophy" style="color:orange"></i> Rekomendasi</h4>
+	                       	<form action="#" method="get" accept-charset="utf-8">
+                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+                            </form>
 	                        <div class="col-md-12">
 	                            <h4>Sisa : 3</h4>
 	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
 	                                <p>Rp. 10.000.000/Tahun</p>
 	                            </div>
 	                        </div>
+	                        <div class="col-md-12" style="padding: 10px">
+                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+                            </div>
 	                    </div>
 	                	<div class="clearfix"></div>
 					</div>
@@ -303,12 +228,19 @@
 	                        </div>
 	                    </div>
 	                    <div class="col-md-4">
+	                        <form action="#" method="get" accept-charset="utf-8">
+                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+                            </form>
 	                        <div class="col-md-12">
 	                            <h4>Sisa : 3</h4>
 	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
 	                                <p>Rp. 10.000.000/Tahun</p>
 	                            </div>
 	                        </div>
+	                        <div class="col-md-12" style="padding: 10px">
+                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+                            </div>
 	                    </div>
 	                	<div class="clearfix"></div>
 					</div>
@@ -362,12 +294,19 @@
 	                        </div>
 	                    </div>
 	                    <div class="col-md-4">
+	                        <form action="#" method="get" accept-charset="utf-8">
+                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+                            </form>
 	                        <div class="col-md-12">
 	                            <h4>Sisa : 3</h4>
 	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
 	                                <p>Rp. 10.000.000/Tahun</p>
 	                            </div>
 	                        </div>
+	                        <div class="col-md-12" style="padding: 10px">
+                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+                            </div>
 	                    </div>
 	                	<div class="clearfix"></div>
 					</div>
@@ -418,12 +357,19 @@
 	                        </div>
 	                    </div>
 	                    <div class="col-md-4">
+	                        <form action="#" method="get" accept-charset="utf-8">
+                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+                            </form>
 	                        <div class="col-md-12">
 	                            <h4>Sisa : 3</h4>
 	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
 	                                <p>Rp. 10.000.000/Tahun</p>
 	                            </div>
 	                        </div>
+	                        <div class="col-md-12" style="padding: 10px">
+                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+                            </div>
 	                    </div>
 	                	<div class="clearfix"></div>
 					</div>
@@ -474,12 +420,19 @@
 	                        </div>
 	                    </div>
 	                    <div class="col-md-4">
+	                        <form action="#" method="get" accept-charset="utf-8">
+                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+                            </form>
 	                        <div class="col-md-12">
-	                            <h4 style="color: red">Sisa : 0</h4>
-	                            <div style="padding: 10px;" class="btn-danger btn-fill text-center">
-	                                <p>Tidak ada kamar yang tersedia</p>
+	                            <h4>Sisa : 3</h4>
+	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+	                                <p>Rp. 10.000.000/Tahun</p>
 	                            </div>
 	                        </div>
+	                        <div class="col-md-12" style="padding: 10px">
+                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+                            </div>
 	                    </div>
 	                	<div class="clearfix"></div>
 					</div>
@@ -763,17 +716,28 @@
 <script src="../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<script src="../dist/js/sweetalert2.min.js"></script>
 <script>
-	$(document).on('click', '#radius', function(e){
-            var flag = $(this).is(':checked');
-            if(flag)
-            {
-                $('#fieldRadius').removeClass('hidden');
-            }
-            else
-            {
-                $('#fieldRadius').addClass('hidden');
-            }
+	$(document).on('click','.btn-delete', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            swal({
+              title: 'Apakah anda yakin?',
+              text: "Data sudah terhapus tidak dapat dikembalikan lagi.",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              cancelButtonText:'Batalkan',
+              confirmButtonText: 'Ya, Hapus!'
+            }).then(function () {
+              swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            });
         });
 </script>
 </body>
