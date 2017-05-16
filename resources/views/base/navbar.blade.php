@@ -1,7 +1,7 @@
 <nav class="navbar navbar-static-top">
 			<!-- Sidebar toggle button-->
 			<div class="logo">
-				<a href="{{URL::previous()}}" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
+				<a onclick="window.history.back(-1);" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
 		        <a href="{{ url('/') }}" class="" style="color: white">
 		            Kost.in
 		        </a>
