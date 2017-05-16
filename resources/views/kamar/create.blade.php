@@ -4,6 +4,12 @@
 	Dashboard
 @endsection
 
+@section('moreCss')
+	<link rel="stylesheet" href="{{URL::asset('/css/sweetalert2.min.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('/css/jquery.fileuploader.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('/css/jquery.fileuploader-theme-thumbnails.css')}}">
+@endsection
+
 @section('content')
 	<section class="content-header">
 			<h1>
