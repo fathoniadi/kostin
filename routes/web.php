@@ -27,7 +27,3 @@ Route::get('/dashboard', function(){
 Route::get('/dashboard/kamar/create', function(){
 	return view('kamar.create');
 });
-
-Route::get('/search', function(){
-	
-})
