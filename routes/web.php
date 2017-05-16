@@ -18,3 +18,16 @@ Route::get('/', function () {
 
 Route::get('/login', 'AuthController@login');
 Route::get('/register', 'AuthController@register');
+
+
+Route::get('/dashboard', function(){
+	return view('dashboard.dashboard');
+});
+
+Route::get('/dashboard/kamar/create', function(){
+	return view('kamar.create');
+});
+
+Route::get('/search', function(){
+	
+})
