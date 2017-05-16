@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AdminLTE 2 | General Form Elements</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.6 -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+	<!-- AdminLTE Skins. Choose a skin from the css/skins
+			 folder instead of downloading all of them to reduce the load. -->
+	<link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+	<link rel="stylesheet" href="../dist/css/sweetalert2.min.css">
+	<link rel="stylesheet" href="../dist/css/jquery.fileuploader.css">
+	<link rel="stylesheet" href="../dist/css/jquery.fileuploader-theme-thumbnails.css">
+	<style>
+		.main-sidebar { background-color: white !important }
+		.btn-circle {
+            width: 40px;
+            height: 40px;
+            padding: 6px 0px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 13px;
+            color: white;
+        }
+	</style>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body class="hold-transition skin-red-light layout-top-nav">
+<div class="wrapper">
+
+	<header class="main-header">
+		<!-- Logo -->
+		<!-- Header Navbar: style can be found in header.less -->
+		<nav class="navbar navbar-static-top">
+			<!-- Sidebar toggle button-->
+			<div class="logo">
+				<a href="#" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
+		        <a href="search.html" class="" style="color: white">
+		            Kost.in
+		        </a>
+			</div>
+
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+					<!-- User Account: style can be found in dropdown.less -->
+					<li class="dropdown user user-menu">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+							<span class="hidden-xs">Alexander Pierce</span>
+						</a>
+						<ul class="dropdown-menu">
+							<!-- User image -->
+							<li class="user-header">
+								<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+								<p>
+									Alexander Pierce - Web Developer
+									<small>Member since Nov. 2012</small>
+								</p>
+							</li>
+							<!-- Menu Body -->
+							<li class="user-body">
+								<div class="row">
+									<div class="col-xs-4 text-center">
+										<a href="#">Followers</a>
+									</div>
+									<div class="col-xs-4 text-center">
+										<a href="#">Sales</a>
+									</div>
+									<div class="col-xs-4 text-center">
+										<a href="#">Friends</a>
+									</div>
+								</div>
+								<!-- /.row -->
+							</li>
+							<!-- Menu Footer-->
+							<li class="user-footer">
+								<div class="pull-left">
+									<a href="#" class="btn btn-default btn-flat">Profile</a>
+								</div>
+								<div class="pull-right">
+									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Left side column. contains the logo and sidebar -->
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				Tambah Kamar Kost
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+				<li><a href="#">Kamar Kost</a></li>
+				<li class="active">Tambah Kamar Kost</li>
+			</ol>
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<!-- left column -->
+				<div class="col-md-12">
+					<!-- general form elements -->
+					<div class="box box-primary" style="padding: 10px">
+						<div class="box-header with-border">
+							<h4>Tambah Kamar Kost</h4>
+						</div>
+						<form>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label">Judul</label>
+                                        <input type="text" name="judul" value="" class="form-control" placeholder="Judul">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" >Fasilitas</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_tv" value="">TV</label>
+                                            </div>
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_ac" value="">AC</label>
+                                            </div>
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_km" value="">Kamar Mandi Dalam</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_wifi" value="">WIFI</label>
+                                            </div>
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_meja" value="">Meja</label>
+                                            </div>
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kursi</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kulkas" value="">Kulkas</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Ketersediaan</label>
+                                        <input type="text" name="ketersediaan" value="" class="form-control" placeholder="Ketersediaan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Harga</label>
+                                        <input type="text" name="harga" value="" class="form-control" placeholder="Harga">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Penyewaan</label>
+                                        <select class="form-control" name="penyewaan">
+                                            <option value="">Tipe Waktu Penyewaan</option>
+                                            <option value="1">Bulanan</option>
+                                            <option value="2">Tahunan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Gender</label>
+                                        <select class="form-control" name="penyewaan">
+                                            <option value="">Pilihan Gender</option>
+                                            <option value="1">Laki-laki</option>
+                                            <option value="2">Perempuan</option>
+                                            <option value="3">Campur</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Provinsi</label>
+                                        <select name="provinsi" class="form-control">
+                                            <option value="">Provinsi</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Kota</label>
+                                        <select name="kota" class="form-control">
+                                            <option value="">Kota</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Media</label>
+                                        <div class="form-controls"> 
+                                            <div id="list-media">
+                                                
+                                            </div>
+                                            <input type="file" class="image-uploads" name="media[]" multiple accept=".jpg,.jpeg,.png,.gif" /> </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Lokasi Peta</label>
+                                        <div id="location-picker" style="height: 400px; overflow: hidden;"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="location-address" class="form-control" name="lokasi" placeholder="Enter a location" autocomplete="on"> 
+                                    </div>
+                                    <div class="form-group">
+                                        <input hidden id="location-lat" name="latitude">
+                                    </div>
+                                    <div class="form-group">
+                                        <input hidden id="location-lon" name="longitude"> 
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <button type="submit" class="btn pull-right btn-info btn-fill">Simpan</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+	                	<div class="clearfix"></div>
+					</div>
+					<!-- /.box -->
+				</div>
+			<!-- /.row -->
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
+	<footer class="main-footer">
+		<div class="pull-right hidden-xs">
+			<b>Version</b> 2.3.8
+		</div>
+		<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+		reserved.
+	</footer>
+
+	<!-- Control Sidebar -->
+	<aside class="control-sidebar control-sidebar-light">
+		<!-- Create the tabs -->
+		<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+			<li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+			<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<!-- Home tab content -->
+			<div class="tab-pane" id="control-sidebar-home-tab">
+				<h3 class="control-sidebar-heading">Recent Activity</h3>
+				<ul class="control-sidebar-menu">
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+							<div class="menu-info">
+								<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+								<p>Will be 23 on April 24th</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon fa fa-user bg-yellow"></i>
+
+							<div class="menu-info">
+								<h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+								<p>New phone +1(800)555-1234</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+							<div class="menu-info">
+								<h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+								<p>nora@example.com</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+							<div class="menu-info">
+								<h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+								<p>Execution time 5 seconds</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<!-- /.control-sidebar-menu -->
+
+				<h3 class="control-sidebar-heading">Tasks Progress</h3>
+				<ul class="control-sidebar-menu">
+					<li>
+						<a href="javascript:void(0)">
+							<h4 class="control-sidebar-subheading">
+								Custom Template Design
+								<span class="label label-danger pull-right">70%</span>
+							</h4>
+
+							<div class="progress progress-xxs">
+								<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<h4 class="control-sidebar-subheading">
+								Update Resume
+								<span class="label label-success pull-right">95%</span>
+							</h4>
+
+							<div class="progress progress-xxs">
+								<div class="progress-bar progress-bar-success" style="width: 95%"></div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<h4 class="control-sidebar-subheading">
+								Laravel Integration
+								<span class="label label-warning pull-right">50%</span>
+							</h4>
+
+							<div class="progress progress-xxs">
+								<div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<h4 class="control-sidebar-subheading">
+								Back End Framework
+								<span class="label label-primary pull-right">68%</span>
+							</h4>
+
+							<div class="progress progress-xxs">
+								<div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<!-- /.control-sidebar-menu -->
+
+			</div>
+			<!-- /.tab-pane -->
+			<!-- Stats tab content -->
+			<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+			<!-- /.tab-pane -->
+			<!-- Settings tab content -->
+			<div class="tab-pane" id="control-sidebar-settings-tab">
+				<form method="post">
+					<h3 class="control-sidebar-heading">General Settings</h3>
+
+					<div class="form-group">
+						<label class="control-sidebar-subheading">
+							Report panel usage
+							<input type="checkbox" class="pull-right" checked>
+						</label>
+
+						<p>
+							Some information about this general settings option
+						</p>
+					</div>
+					<!-- /.form-group -->
+
+					<div class="form-group">
+						<label class="control-sidebar-subheading">
+							Allow mail redirect
+							<input type="checkbox" class="pull-right" checked>
+						</label>
+
+						<p>
+							Other sets of options are available
+						</p>
+					</div>
+					<!-- /.form-group -->
+
+					<div class="form-group">
+						<label class="control-sidebar-subheading">
+							Expose author name in posts
+							<input type="checkbox" class="pull-right" checked>
+						</label>
+
+						<p>
+							Allow the user to show his name in blog posts
+						</p>
+					</div>
+					<!-- /.form-group -->
+
+					<h3 class="control-sidebar-heading">Chat Settings</h3>
+
+					<div class="form-group">
+						<label class="control-sidebar-subheading">
+							Show me as online
+							<input type="checkbox" class="pull-right" checked>
+						</label>
+					</div>
+					<!-- /.form-group -->
+
+					<div class="form-group">
+						<label class="control-sidebar-subheading">
+							Turn off notifications
+							<input type="checkbox" class="pull-right">
+						</label>
+					</div>
+					<!-- /.form-group -->
+
+					<div class="form-group">
+						<label class="control-sidebar-subheading">
+							Delete chat history
+							<a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+						</label>
+					</div>
+					<!-- /.form-group -->
+				</form>
+			</div>
+			<!-- /.tab-pane -->
+		</div>
+	</aside>
+	<!-- /.control-sidebar -->
+	<!-- Add the sidebar's background. This div must be placed
+			 immediately after the control sidebar -->
+	<div class="control-sidebar-bg"></div>
+	<div id="customModal" class="modal fade " role="dialog">
+	    <div class="modal-dialog modal-md">
+
+	        <!-- Modal content-->
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                <h4 class="modal-title">Custom Search</h4>
+	            </div>
+	            <div class="modal-body">
+	                <form action="" method="get">
+	                    <div class="form-group">
+	                        <label class="control-label">Provinsi</label>
+	                        <select name="provinsi" class="form-control">
+	                            <option value="">Provinsi</option>
+	                        </select>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label">Kota</label>
+	                        <select name="kota" class="form-control">
+	                            <option value="">Kota</option>
+	                        </select>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label">Kata Kunci</label>
+	                        <input type="text" class="form-control" name="keyword" value="" placeholder="Kata Kunci">
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label"><input type="checkbox" id="radius" name="radius" value=""> Pencarian berdasarkan lokasi terdekat</label>
+	                    </div>
+	                    <div id="fieldRadius" class="form-group hidden">
+	                        <label class="control-label">Radius</label>
+	                        <input type="text" class="form-control" name="jarak_radius" value="" placeholder="Radius (km)">
+	                    </div>
+	                </form>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-danger btn-fill" data-dismiss="modal">Cancel</button>
+	                <a href="" class="btn btn-primary btn-fill pull-right">Cari</a>
+	            </div>
+	        </div>
+
+	    </div>
+	</div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<script src="../dist/js/sweetalert2.min.js"></script>
+<script src="../dist/js/jquery.fileuploader.min.js"></script>
+<script src="../dist/js/jquery.fileuploader.custom.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js??sensor=false&libraries=places&key=AIzaSyA2HYBg5HU17qWpTDKGM7nsrxclhcvN5Go"></script>
+<script src="../dist/js/locationpicker.jquery.min.js"></script>
+<script>
+	getLocation();
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, errorPosition, {
+                    timeout: 5000
+                });
+            } else {
+                alert('Browser tidak mendukung')
+            }
+        }
+
+        function showPosition(position) {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+
+            $('#location-lat-original').val(lat);
+            $('#location-lon-original').val(lon);
+
+            $('#location-picker').locationpicker({
+                location: {
+                    latitude: lat,
+                    longitude: lon
+                },
+                radius: 0,
+                inputBinding: {
+                    latitudeInput: $('#location-lat'),
+                    longitudeInput: $('#location-lon'),
+                    radiusInput: $('#location-radius'),
+                    locationNameInput: $('#location-address')
+                },
+                enableAutocomplete: true,
+            });
+        };
+
+        function errorPosition() {
+            $('#location-picker').locationpicker({
+                location: {
+                    latitude: 46.15242437752303,
+                    longitude: 2.7470703125
+                },
+                radius: 100,
+                inputBinding: {
+                    latitudeInput: $('#location-lat'),
+                    longitudeInput: $('#location-lon'),
+                    radiusInput: $('#location-radius'),
+                    locationNameInput: $('#location-address')
+                },
+                enableAutocomplete: true,
+            });
+        }
+
+        function route()
+        {
+            var long_current = $('#location-lon').val();
+            var lat_current = $('#location-lat').val();
+            var uri = 'https://maps.google.com?saddr=Current+Location&daddr='+lat_current+','+long_current;
+            window.open(uri, '_blank');
+        }
+</script>
+</body>
+</html>
