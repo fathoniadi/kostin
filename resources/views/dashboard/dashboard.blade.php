@@ -32,7 +32,7 @@
 						<div class="box-body">
 							<div class="row">
 								<div class="col-sm-12 panel-kost" style="padding: 10px">
-									<a href="#" class="btn btn-primary pull-right" title="">Tambah Kamar Kost</a>
+									<a href="{{ url('/dashboard/kamar/create') }}" class="btn btn-primary pull-right" title="">Tambah Kamar Kost</a>
 								</div>
 								@foreach ($kamars as $key => $kamar)
 									<div class="col-sm-12 panel-kost">
