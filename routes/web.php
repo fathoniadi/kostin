@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/login', 'AuthController@login');
+Route::get('/register', 'AuthController@register');
