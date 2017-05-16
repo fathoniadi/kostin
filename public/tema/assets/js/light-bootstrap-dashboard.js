@@ -97,7 +97,7 @@ lbd = {
             });
 
             // add the content from the sidebar to the right menu
-            content_buff = $sidebar.find('.nav').html();
+            content_buff = $sidebar.find('.row').html();
             ul_content = ul_content + content_buff;
 
 
