@@ -29,5 +29,5 @@ Route::get('/dashboard/kamar/create', function(){
 });
 
 Route::get('/search', function(){
-	
-})
+	return view('search.search');
+});

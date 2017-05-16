@@ -4,6 +4,17 @@
 	Dashboard
 @endsection
 
+@section('navbar')
+	<!-- Header Navbar: style can be found in header.less -->
+	<nav class="navbar navbar-static-top">
+		<!-- Sidebar toggle button-->
+		<div class="navbar-custom-menu">
+			<ul class="nav navbar-nav">
+			</ul>
+		</div>
+	</nav>
+@endsection
+
 @section('sidebar')
 	<div class="user-panel" style="">
 	    <h4>Hasil Pencarian</h4>
