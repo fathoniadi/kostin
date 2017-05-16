@@ -6,352 +6,111 @@
 
 @section('content')
 	<section class="content-header">
-			<h1>
-				Dashboard
-			</h1>
-			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-			</ol>
-		</section>
+		<h1>
+			Dashboard
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+		</ol>
+	</section>
 
 		<!-- Main content -->
 		<section class="content">
 			<div class="row">
-				<!-- left column -->
 				<div class="col-md-12">
+				@if(Session::get('message'))
+			        <div class="alert alert-success alert-dismissible" role="alert">
+			            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			            <h4>Sukses!</h4> 
+			            {{Session::get('message')}}.
+			        </div>
+				@endif
 					<!-- general form elements -->
 					<div class="box box-primary" style="padding: 10px">
 						<div class="box-header with-border">
 						</div>
-						<div class="col-md-8">
-	                        <div class="row">
-	                            <div class="col-lg-4">
-	                                <img src="../dist/img/photo2.png" class="img-responsive img-thumbnail" alt="">
-	                            </div>
-	                            <div class="col-lg-8">
-	                            	<h3 style="margin-top: 0">Kamar Kost 1 Putra</h3>
-	                                <div class="row">
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>TV</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>AC</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                           <p>Kamar Mandi Dalam</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>Wifi</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Meja</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Kursi</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                            <p>Kulkas</p>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-md-4">
-	                       	<form action="#" method="get" accept-charset="utf-8">
-                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
-                            </form>
-	                        <div class="col-md-12">
-	                            <h4>Sisa : 3</h4>
-	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
-	                                <p>Rp. 10.000.000/Tahun</p>
-	                            </div>
-	                        </div>
-	                        <div class="col-md-12" style="padding: 10px">
-                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
-                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
-                            </div>
-	                    </div>
-	                	<div class="clearfix"></div>
-					</div>
-					<!-- /.box -->
-				</div>
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary" style="padding: 10px">
-						<div class="box-header with-border">
+						<div class="box-body">
+							<div class="row">
+								<div class="col-sm-12 panel-kost" style="padding: 10px">
+									<a href="#" class="btn btn-primary pull-right" title="">Tambah Kamar Kost</a>
+								</div>
+								@foreach ($kamars as $key => $kamar)
+									<div class="col-sm-12 panel-kost">
+										<div class="col-md-8">
+					                        <div class="row">
+					                            <div class="col-lg-4">
+					                            	@if($kamar->medias->count())
+					                                	<img src="{{ url($kamar->medias[0]->path_media.$kamar->medias[0]->nama_media) }}" class="img-responsive img-thumbnail" alt="">
+					                                @else
+					                                <img src="{{ url('/img/boxed-bg.jpg') }}" class="img-responsive img-thumbnail" alt="">
+					                                @endif
+					                            </div>
+					                            <div class="col-lg-8">
+					                            	<h3 style="margin-top: 0">{{$kamar->nama_kamar}}</h3>
+					                                <div class="row">
+					                                    <div class="col-md-4">
+					                                        <div class="form-group">                              
+					                                           <p>- TV</p>
+					                                        </div>
+					                                        <div class="form-group">                              
+					                                            <p>- AC</p>
+					                                        </div>
+					                                        <div class="form-group">                              
+					                                           <p>- Kamar Mandi Dalam</p>
+					                                        </div>
+					                                    </div>
+					                                    <div class="col-md-4">
+					                                        <div class="form-group">                              
+					                                           <p>- Wifi</p>
+					                                        </div>
+					                                        <div class="form-group">                              
+					                                            <p>- Meja</p>
+					                                        </div>
+					                                        <div class="form-group">                              
+					                                            <p>- Kursi</p>
+					                                        </div>
+					                                    </div>
+					                                    <div class="col-md-4">
+					                                        <div class="form-group">
+					                                            <p>- Kulkas</p>
+					                                        </div>
+					                                    </div>
+					                                </div>
+					                            </div>
+					                        </div>
+					                    </div>
+					                    <div class="col-md-4">
+					                       	<form class="form-delete" action="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}" method="post" accept-charset="utf-8">
+					                       		{{csrf_field()}}
+												{{method_field('DELETE')}}
+				                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+				                            </form>
+					                        <div class="col-md-12">
+					                            <h4>Sisa : {{$kamar->jumlah_kamar}}</h4>
+					                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+					                                <p>Rp. {{$kamar->harga_kamar}}/@if($kamar->sewa_kamar==1)
+					                                	Bulan
+					                                @elseif($kamar->sewa_kamar==2)
+					                                	Tahun
+					                                @endif</p>
+					                            </div>
+					                        </div>
+					                        <div class="col-md-12" style="padding: 10px">
+				                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+				                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+				                            </div>
+					                    </div>
+					                	<div class="clearfix"></div>
+									</div>
+								@endforeach
+							</div>
 						</div>
-						<div class="col-md-8">
-	                        <div class="row">
-	                            <div class="col-lg-4">
-	                                <img src="../dist/img/photo2.png" class="img-responsive img-thumbnail" alt="">
-	                            </div>
-	                            <div class="col-lg-8">
-	                            	<h3 style="margin-top: 0">Kamar Kost 1 Putra</h3>
-	                                <div class="row">
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>TV</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>AC</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                           <p>Kamar Mandi Dalam</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>Wifi</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Meja</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Kursi</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                            <p>Kulkas</p>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <form action="#" method="get" accept-charset="utf-8">
-                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
-                            </form>
-	                        <div class="col-md-12">
-	                            <h4>Sisa : 3</h4>
-	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
-	                                <p>Rp. 10.000.000/Tahun</p>
-	                            </div>
-	                        </div>
-	                        <div class="col-md-12" style="padding: 10px">
-                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
-                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
-                            </div>
-	                    </div>
-	                	<div class="clearfix"></div>
+						<div class="box-footer text-right">
+			                {{$kamars->links()}}
+			            </div>
 					</div>
-					<!-- /.box -->
-				</div>
-				<!--/.col (left) -->
-				<!-- right column -->
-				<!--/.col (right) -->
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary" style="padding: 10px">
-						<div class="box-header with-border">
-						</div>
-						<div class="col-md-8">
-	                        <div class="row">
-	                            <div class="col-lg-4">
-	                                <img src="../dist/img/photo2.png" class="img-responsive img-thumbnail" alt="">
-	                            </div>
-	                            <div class="col-lg-8">
-	                            	<h3 style="margin-top: 0">Kamar Kost 1 Putra</h3>
-	                                <div class="row">
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>TV</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>AC</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                           <p>Kamar Mandi Dalam</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>Wifi</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Meja</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Kursi</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                            <p>Kulkas</p>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <form action="#" method="get" accept-charset="utf-8">
-                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
-                            </form>
-	                        <div class="col-md-12">
-	                            <h4>Sisa : 3</h4>
-	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
-	                                <p>Rp. 10.000.000/Tahun</p>
-	                            </div>
-	                        </div>
-	                        <div class="col-md-12" style="padding: 10px">
-                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
-                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
-                            </div>
-	                    </div>
-	                	<div class="clearfix"></div>
-					</div>
-					<!-- /.box -->
-				</div>
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary" style="padding: 10px">
-						<div class="box-header with-border">
-						</div>
-						<div class="col-md-8">
-	                        <div class="row">
-	                            <div class="col-lg-4">
-	                                <img src="../dist/img/photo2.png" class="img-responsive img-thumbnail" alt="">
-	                            </div>
-	                            <div class="col-lg-8">
-	                            	<h3 style="margin-top: 0">Kamar Kost 1 Putra</h3>
-	                                <div class="row">
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>TV</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>AC</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                           <p>Kamar Mandi Dalam</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>Wifi</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Meja</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Kursi</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                            <p>Kulkas</p>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <form action="#" method="get" accept-charset="utf-8">
-                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
-                            </form>
-	                        <div class="col-md-12">
-	                            <h4>Sisa : 3</h4>
-	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
-	                                <p>Rp. 10.000.000/Tahun</p>
-	                            </div>
-	                        </div>
-	                        <div class="col-md-12" style="padding: 10px">
-                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
-                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
-                            </div>
-	                    </div>
-	                	<div class="clearfix"></div>
-					</div>
-					<!-- /.box -->
-				</div>
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary" style="padding: 10px">
-						<div class="box-header with-border">
-						</div>
-						<div class="col-md-8">
-	                        <div class="row">
-	                            <div class="col-lg-4">
-	                                <img src="../dist/img/photo2.png" class="img-responsive img-thumbnail" alt="">
-	                            </div>
-	                            <div class="col-lg-8">
-	                            	<h3 style="margin-top: 0">Kamar Kost 1 Putra</h3>
-	                                <div class="row">
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>TV</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>AC</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                           <p>Kamar Mandi Dalam</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                           <p>Wifi</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Meja</p>
-	                                        </div>
-	                                        <div class="form-group">                              
-	                                            <p>Kursi</p>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <div class="form-group">                              
-	                                            <p>Kulkas</p>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <form action="#" method="get" accept-charset="utf-8">
-                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
-                            </form>
-	                        <div class="col-md-12">
-	                            <h4>Sisa : 3</h4>
-	                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
-	                                <p>Rp. 10.000.000/Tahun</p>
-	                            </div>
-	                        </div>
-	                        <div class="col-md-12" style="padding: 10px">
-                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
-                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
-                            </div>
-	                    </div>
-	                	<div class="clearfix"></div>
-					</div>
-					<!-- /.box -->
 				</div>
 			</div>
-			<div class="box-footer text-right">
-                <ul class="pagination">
-                    <li class="disabled"><span>«</span>
-                    </li>
-                    <li class="active"><span>1</span>
-                    </li>
-                    <li><a href="http://10.151.36.5:6969/kucinglucu/oprec/9fae20e0-2528-11e7-91c2-4fddc4684aa3?page=2">2</a>
-                    </li>
-                    <li><a href="http://10.151.36.5:6969/kucinglucu/oprec/9fae20e0-2528-11e7-91c2-4fddc4684aa3?page=3">3</a>
-                    </li>
-                    <li><a href="http://10.151.36.5:6969/kucinglucu/oprec/9fae20e0-2528-11e7-91c2-4fddc4684aa3?page=2" rel="next">»</a>
-                    </li>
-                </ul>
-            </div>
-			<!-- /.row -->
 		</section>
 		<!-- /.content -->
 @endsection
@@ -368,6 +127,13 @@
             font-size: 13px;
             color: white;
         }
+
+        .panel-kost{
+            margin-bottom: 10px;
+            border-bottom: 5px solid;
+            border-bottom-color: #005F6B;
+            padding: 10px;
+        }
 	</style>
 @endsection
 
@@ -376,7 +142,7 @@
 	$(document).on('click','.btn-delete', function (e) {
             e.preventDefault();
             e.stopPropagation();
-
+            var form = $(this).parents('form');
             swal({
               title: 'Apakah anda yakin?',
               text: "Data sudah terhapus tidak dapat dikembalikan lagi.",
@@ -387,11 +153,7 @@
               cancelButtonText:'Batalkan',
               confirmButtonText: 'Ya, Hapus!'
             }).then(function () {
-              swal(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
+            	form.submit();
             });
         });
 </script>

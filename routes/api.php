@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Kota;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,11 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::get('/kotabyidprovinsi/{id_provinsi}', function($id_provinsi,Request $request){
+
+	$kotas = Kota::where('id_provinsi', $id_provinsi)->get(['id_kota','id_provinsi','nama_kota']);
+	return json_encode($kotas);
 });

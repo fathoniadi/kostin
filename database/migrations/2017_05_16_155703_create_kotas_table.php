@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaTable extends Migration
+class CreateKotasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('medias', function (Blueprint $table) {
-            $table->increments('id_media');
-            $table->string('nama_media');
-            $table->string('path_media');
-            $table->string('id_kamar');
+        Schema::create('kotas', function (Blueprint $table) {
+            $table->increments('id_kota');
+            $table->string('nama_kota');
+            $table->integer('id_provinsi');
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +28,6 @@ class CreateMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medias');
+        Schema::dropIfExists('kotas');
     }
 }

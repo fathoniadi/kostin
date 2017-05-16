@@ -17,16 +17,13 @@ Route::get('/', function () {
 
 
 Route::get('/login', 'AuthController@login');
+Route::post('/login', 'AuthController@doLogin');
 Route::get('/register', 'AuthController@register');
 
 
-Route::get('/dashboard', function(){
-	return view('dashboard.dashboard');
-});
+Route::resource('/dashboard', 'DashboardController');
 
-Route::get('/dashboard/kamar/create', function(){
-	return view('kamar.create');
-});
+Route::resource('/dashboard/kamar', 'KamarController');
 
 Route::get('/search', function(){
 	return view('search.search');

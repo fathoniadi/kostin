@@ -32,7 +32,18 @@
 						<div class="box-header with-border">
 							<h4>Tambah Kamar Kost</h4>
 						</div>
-						<form>
+						<form method="POST" action="{{ url('/dashboard/kamar') }}" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            {{method_field('POST')}}
+                            @if ($errors->count()>0)
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4>Terjadi kesalahan: </h4>
+                                    @foreach ($errors->all() as $error)
+                                        <p>{!! $error !!}</p>
+                                    @endforeach
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
@@ -45,29 +56,29 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_tv" value="">TV</label>
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_tv">TV</label>
                                             </div>
                                             <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_ac" value="">AC</label>
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_ac">AC</label>
                                             </div>
                                             <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_km" value="">Kamar Mandi Dalam</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_wifi" value="">WIFI</label>
-                                            </div>
-                                            <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_meja" value="">Meja</label>
-                                            </div>
-                                            <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kursi" value="">Kursi</label>
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_km">Kamar Mandi Dalam</label>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">                              
-                                                <label><input style="background-color: #141414" type="checkbox" name="fasilitas_kulkas" value="">Kulkas</label>
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_wifi">WIFI</label>
+                                            </div>
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_meja">Meja</label>
+                                            </div>
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_kursi">Kursi</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">                              
+                                                <label><input style="background-color: #141414" type="checkbox" value="1" name="fasilitas_kulkas">Kulkas</label>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +100,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Gender</label>
-                                        <select class="form-control" name="penyewaan">
+                                        <select class="form-control" name="gender">
                                             <option value="">Pilihan Gender</option>
                                             <option value="1">Laki-laki</option>
                                             <option value="2">Perempuan</option>
@@ -98,13 +109,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Provinsi</label>
-                                        <select name="provinsi" class="form-control">
-                                            <option value="">Provinsi</option>
+                                        <select id="fieldProvinsi" name="provinsi" class="form-control">
+                                            <option value="0">Provinsi</option>
+                                            @foreach ($provinsis as $provinsi)
+                                                <option value="{{$provinsi->id_provinsi}}">{{$provinsi->nama_provinsi}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Kota</label>
-                                        <select name="kota" class="form-control">
+                                        <select id="fieldKota" name="kota" class="form-control">
                                             <option value="">Kota</option>
                                         </select>
                                     </div>
@@ -116,7 +130,7 @@
                                             <div id="list-media">
                                                 
                                             </div>
-                                            <input type="file" class="image-uploads" name="media[]" multiple accept=".jpg,.jpeg,.png,.gif" /> </div>
+                                            <input type="file" class="image-uploads" name="media[]"/> </div>
                                         </div>
                                     <div class="form-group">
                                         <label class="control-label">Lokasi Peta</label>
@@ -133,7 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <button type="submit" class="btn pull-right btn-info btn-fill">Simpan</button>
+                                    <button type="submit" class="btn pull-right btn-primary">Simpan</button>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
@@ -229,5 +243,26 @@
             var uri = 'https://maps.google.com?saddr=Current+Location&daddr='+lat_current+','+long_current;
             window.open(uri, '_blank');
         }
+
+        $(document).on('change', '#fieldProvinsi', function(e){
+            e.preventDefault();
+            var id_provinsi = $(this).val();
+            $.ajax({
+                url: "{{url('/api/kotabyidprovinsi')}}/"+id_provinsi,
+            })
+            .done(function() {
+            })
+            .fail(function() {
+            })
+            .always(function(response) {
+                $('#fieldKota').html('<option value="">Kota</option>');
+                if(!response) return false;
+                var kotas = JSON.parse(response);
+                $.each(kotas, function(index, val) {
+                     $('#fieldKota').append('<option value="'+kotas[index].id_kota+'">'+kotas[index].nama_kota+'</option>');
+                });
+            });
+            
+        });
 </script>
 @endsection

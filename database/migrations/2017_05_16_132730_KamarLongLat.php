@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaTable extends Migration
+class KamarLongLat extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('medias', function (Blueprint $table) {
-            $table->increments('id_media');
-            $table->string('nama_media');
-            $table->string('path_media');
-            $table->string('id_kamar');
-            $table->timestamps();
-
+        Schema::table('kamars', function (Blueprint $table) {
+            $table->float('lon',10,6);
+            $table->float('lat',10,6);
         });
     }
 
@@ -30,6 +26,6 @@ class CreateMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medias');
+        //
     }
 }
