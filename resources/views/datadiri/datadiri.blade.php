@@ -15,13 +15,23 @@
 		<section class="content">
 			<div class="row">
 				<!-- left column -->
+                @if ($errors->count()>0)
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        @foreach ($errors->all() as $error)
+                            <p>{!! $error !!}</p>
+                        @endforeach
+                    </div>
+                @endif
 				<div class="col-md-12">
 					<!-- general form elements -->
 					<div class="box box-primary" style="padding:10px">
 						<div class="box-header with-border">
 							<h4>Data Diri</h4>
 						</div>
-						<form>
+						<form action="{{url('/datadiri')}}" method="POST">
+                        {{csrf_field()}}
+                        
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="form-group col-md-9 pull-right">

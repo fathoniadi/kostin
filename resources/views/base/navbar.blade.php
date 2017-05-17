@@ -26,14 +26,11 @@
 							</li>
 							<!-- Menu Footer-->
 							<li class="user-footer">
-								<div class="col-md-4">
-									<a href="#" class="btn btn-default btn-flat">Data Diri</a>
+								<div class="col-md-6">
+									<a href="{{url('/datadiri')}}" class="btn btn-default btn-flat">Data Diri</a>
 								</div>
-								<div class="col-md-4">
-									<a href="#" class="btn btn-default btn-flat">Setting</a>
-								</div>
-								<div class="col-md-4">
-									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+								<div class="col-md-6">
+									<a href="{{url('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
 								</div>
 							</li>
 						</ul>
