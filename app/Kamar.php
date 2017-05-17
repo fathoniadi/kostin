@@ -10,7 +10,7 @@ class Kamar extends Model
 	public $timestamps = true;
 
 	public function owner(){
-		return $this->belongsTo('App\Pengguna','pengguna_id','pengguna_id');
+		return $this->belongsTo('App\Pengguna','id_pengguna','id_pengguna');
 	}
 
 	public function medias(){

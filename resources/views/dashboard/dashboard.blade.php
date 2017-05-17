@@ -110,17 +110,25 @@
 				                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
 				                            </form>
 					                        <div class="col-md-12">
-					                            <h4>Sisa : {{$kamar->jumlah_kamar}}</h4>
-					                            <div style="padding: 10px;" class="btn-success btn-fill text-center">
+					                            <h4 @if ($kamar->jumlah_kamar==0)
+					                            	style="color: orange" 
+					                            @endif>Sisa : {{$kamar->jumlah_kamar}}</h4>
+					                            @if ($kamar->jumlah_kamar==0)
+					                            	<div style="padding: 10px;" class="btn-warning btn-fill text-center">
+					                                <p>Kamar Tidak Tersedia</p>
+					                            </div>
+					                            @else
+													<div style="padding: 10px;" class="btn-success btn-fill text-center">
 					                                <p>Rp. {{$kamar->harga_kamar}}/@if($kamar->sewa_kamar==1)
 					                                	Bulan
 					                                @elseif($kamar->sewa_kamar==2)
 					                                	Tahun
 					                                @endif</p>
 					                            </div>
+					                            @endif
 					                        </div>
 					                        <div class="col-md-12" style="padding: 10px">
-				                                <a href="#" class="btn btn-default btn-fill pull-right">Lihat</a>
+				                                <a href="{{ url('/detailkamar/') }}/{{$kamar->id_kamar}}" class="btn btn-default btn-fill pull-right">Lihat</a>
 				                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
 				                            </div>
 					                    </div>

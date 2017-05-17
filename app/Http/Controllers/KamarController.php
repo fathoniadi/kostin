@@ -177,8 +177,11 @@ class KamarController extends Controller
         
     }
 
-    public function lihatdetail()
+    public function lihatdetail($id_kamar)
     {
-        return view('kamar.detailkamar');
+        $data['kamar'] = Kamar::with(['medias','owner'])->find($id_kamar);
+
+        if(!$data['kamar']) return abort(404);
+        return view('detailkamar.detailkamar', $data);
     }
 }
