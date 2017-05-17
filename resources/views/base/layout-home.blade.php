@@ -38,9 +38,9 @@
       <!-- Sidebar toggle button-->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><h4 style="color:white;">Register&nbsp;</h4></li>
+          <li><a href="{{ url('/register') }}" style="color:white;">Register&nbsp;</a></li>
           <li><h4 style="color:white;">&nbsp;|&nbsp;</h4></li>
-          <li><h4 style="color:white;margin-right:15px;">Login</h4></li>
+          <li><a href="{{ url('/login') }}" style="color:white;margin-right:15px;">Login</a></li>
         </ul>
       </div>
     </nav>

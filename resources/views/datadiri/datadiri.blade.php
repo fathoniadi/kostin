@@ -47,26 +47,30 @@
                                     </div>
                                     <div class="form-group col-md-9 pull-right">
                                         <label class="control-label">Alamat</label>
-                                        <input type="text" name="alamat" value="" class="form-control" placeholder="Alamat">
+                                        <input type="text" name="alamat" value="{{Auth::user()->alamat_pengguna}}" class="form-control" placeholder="Alamat">
                                     </div>
                                     <div class="form-group col-md-9 pull-right">
                                      	<label class="control-label">No Identitas</label>
-                                     	<input type="text" name="noidentitas" value="" class="form-control" placeholder="No Identitas">
+                                     	<input type="text" name="noidentitas" value="{{Auth::user()->no_id_pengguna}}" class="form-control" placeholder="No Identitas">
                                     </div>
                                     <div class="form-group col-md-9 pull-right">
                                         <label class="control-label">No Telepon</label>
-                                        <input type="text" name="notelepon" value="" class="form-control" placeholder="No Telepon">
+                                        <input type="text" name="notelepon" value="{{Auth::user()->no_tlp_pengguna}}" class="form-control" placeholder="No Telepon">
                                     </div>
                                     <div class="form-group col-md-9 pull-right">
                                         <label class="control-label">Tanggal Lahir</label>
-                                        <input type="date" name="tanggallahir" value="" class="form-control" placeholder="Tanggal Lahir">
+                                        <input type="date" name="tanggallahir" value="{{Auth::user()->tgl_lhr_pengguna}}" class="form-control" placeholder="Tanggal Lahir">
                                     </div>
                                     <div class="form-group col-md-9 pull-right">
                                         <label class="control-label">Jenis Kelamin</label>
                                         <select class="form-control" name="jeniskelamin">
                                             <option value="">Pilih Jenis Kelamin</option>
-                                            <option value="1">Laki-laki</option>
-                                            <option value="2">Perempuan</option>
+                                            <option @if (Auth::user()->jenis_kel_pengguna==1)
+                                               selected 
+                                            @endif value="1">Laki-laki</option>
+                                            <option @if (Auth::user()->jenis_kel_pengguna==2)
+                                               selected 
+                                            @endif value="2">Perempuan</option>
                                         </select>
                                     </div>
                                 </div>

@@ -34,8 +34,8 @@
 	<header class="main-header">
 		<!-- Logo -->
 		<div class="logo">
-			<a href="#" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
-	        <a href="search.html" class="" style="color: white">
+			<a onclick="window.history.back(-1);" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
+	        <a href="{{ url('/') }}" class="" style="color: white">
 	            Kost.in
 	        </a>
 		</div>
