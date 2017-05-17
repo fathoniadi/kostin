@@ -13,7 +13,7 @@
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="user-image" alt="User Image">
-							<span class="hidden-xs">{{Auth::user()->email_pengguna}}</span>
+							<span class="hidden-xs">{{Auth::user()->email}}</span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
@@ -21,7 +21,7 @@
 								<img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="img-circle" alt="User Image">
 
 								<p>
-									{{Auth::user()->email_pengguna}}
+									{{Auth::user()->email}}
 								</p>
 							</li>
 							<!-- Menu Footer-->
