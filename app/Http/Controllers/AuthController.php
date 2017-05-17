@@ -52,11 +52,7 @@ class AuthController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-    	if(Auth::attempt(['email' => $request->email , 'password' => $request->password])){
-<<<<<<< Updated upstream
-            
-=======
->>>>>>> Stashed changes
+    	if(Auth::attempt(['email_pengguna' => $request->email , 'password' => $request->password])){
             return redirect('/dashboard');
         }
         return redirect()->back()->withErrors('Email atau Password salah');
