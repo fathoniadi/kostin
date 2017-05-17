@@ -48,32 +48,55 @@
 					                            <div class="col-lg-8">
 					                            	<h3 style="margin-top: 0">{{$kamar->nama_kamar}}</h3>
 					                                <div class="row">
-					                                    <div class="col-md-4">
-					                                        <div class="form-group">                              
-					                                           <p>- TV</p>
+					                                @php
+													$fasilitas = [];
+														if($kamar->tv==1)
+														{
+															$fasilitas['TV'] = 1;
+														}
+
+														if($kamar->ac==1){
+															$fasilitas['AC'] = 1;
+														}
+
+														if($kamar->km==1){
+															$fasilitas['Kamar Mandi Dalam']=1;
+														}
+
+														if($kamar->wf==1){
+															$fasilitas['Wifi']=1;
+														}
+
+														if($kamar->mj==1){
+															$fasilitas['Meja']=1;
+														}
+
+														if($kamar->kr==1){
+															$fasilitas['Kursi']=1;
+														}
+
+														if($kamar->kk==1){
+															$fasilitas['Kulkas']=1;
+														}
+														$counter = 0;
+														@endphp
+														
+															<div class="col-md-4">
+														@foreach ($fasilitas as $key => $element)
+															<div class="form-group">              
+					                                           <p>- {{$key}}</p>
 					                                        </div>
-					                                        <div class="form-group">                              
-					                                            <p>- AC</p>
-					                                        </div>
-					                                        <div class="form-group">                              
-					                                           <p>- Kamar Mandi Dalam</p>
-					                                        </div>
-					                                    </div>
-					                                    <div class="col-md-4">
-					                                        <div class="form-group">                              
-					                                           <p>- Wifi</p>
-					                                        </div>
-					                                        <div class="form-group">                              
-					                                            <p>- Meja</p>
-					                                        </div>
-					                                        <div class="form-group">                              
-					                                            <p>- Kursi</p>
-					                                        </div>
-					                                    </div>
-					                                    <div class="col-md-4">
-					                                        <div class="form-group">
-					                                            <p>- Kulkas</p>
-					                                        </div>
+					                                        @php
+					                                        	$counter++;
+					                                        @endphp
+					                                        @if ($counter>2)
+					                                        	 </div>
+					                                    		<div class="col-md-4">
+						                                    	@php
+						                                        	$counter=0;
+						                                        @endphp
+					                                        @endif
+														@endforeach
 					                                    </div>
 					                                </div>
 					                            </div>
