@@ -23,7 +23,7 @@ Route::get('/datadiri', 'DatadiriController@index');
 Route::post('/datadiri', 'DatadiriController@doDatadiri');
 Route::get('/logout', 'AuthController@logout');
 Route::resource('/dashboard', 'DashboardController');
-
+Route::get('/detailkamar', 'KamarController@lihatdetail');
 Route::resource('/dashboard/kamar', 'KamarController');
 
 Route::get('/search', function(){
