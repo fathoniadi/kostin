@@ -17,6 +17,7 @@
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
 			 folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="{{URL::asset('/css/skins/_all-skins.min.css')}}">
+	<link rel="stylesheet" href="{{URL::asset('/css/sweetalert2.min.css')}}">
 	<style>
 		.main-sidebar { background-color: white !important }
 	</style>
@@ -69,50 +70,6 @@
 	<!-- Add the sidebar's background. This div must be placed
 			 immediately after the control sidebar -->
 	<div class="control-sidebar-bg"></div>
-	<div id="customModal" class="modal fade " role="dialog">
-	    <div class="modal-dialog modal-md">
-
-	        <!-- Modal content-->
-	        <div class="modal-content">
-	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal">&times;</button>
-	                <h4 class="modal-title">Custom Search</h4>
-	            </div>
-	            <div class="modal-body">
-	                <form action="" method="get">
-	                    <div class="form-group">
-	                        <label class="control-label">Provinsi</label>
-	                        <select name="provinsi" class="form-control">
-	                            <option value="">Provinsi</option>
-	                        </select>
-	                    </div>
-	                    <div class="form-group">
-	                        <label class="control-label">Kota</label>
-	                        <select name="kota" class="form-control">
-	                            <option value="">Kota</option>
-	                        </select>
-	                    </div>
-	                    <div class="form-group">
-	                        <label class="control-label">Kata Kunci</label>
-	                        <input type="text" class="form-control" name="keyword" value="" placeholder="Kata Kunci">
-	                    </div>
-	                    <div class="form-group">
-	                        <label class="control-label"><input type="checkbox" id="radius" name="radius" value=""> Pencarian berdasarkan lokasi terdekat</label>
-	                    </div>
-	                    <div id="fieldRadius" class="form-group hidden">
-	                        <label class="control-label">Radius</label>
-	                        <input type="text" class="form-control" name="jarak_radius" value="" placeholder="Radius (km)">
-	                    </div>
-	                </form>
-	            </div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-danger btn-fill" data-dismiss="modal">Cancel</button>
-	                <a href="" class="btn btn-primary btn-fill pull-right">Cari</a>
-	            </div>
-	        </div>
-
-	    </div>
-	</div>
 </div>
 <!-- ./wrapper -->
 	<!-- jQuery 2.2.3 -->
@@ -127,6 +84,5 @@
 	<script src="{{URL::asset('/js/demo.js')}}"></script>
 	<script src="{{URL::asset('/js/sweetalert2.min.js')}}"></script>
 	@yield('moreJs')
-
 </body>
 </html>

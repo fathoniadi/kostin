@@ -16,7 +16,7 @@
             <select name="provinsi" id="provinsi" class="form-control">
                 <option value="0">Provinsi</option>
                 @foreach ($provinsis as $provinsi)
-                  <option value="{{$provinsi->id_provinsi}}">{{$provinsi->nama_provinsi}}</option>
+                  <option required value="{{$provinsi->id_provinsi}}">{{$provinsi->nama_provinsi}}</option>
                 @endforeach
             </select>
         </div>
@@ -68,14 +68,14 @@
                           <label class="control-label">Kata Kunci</label>
                           <input type="text" class="form-control" name="keyword" value="" placeholder="Kata Kunci">
                       </div>
-                      <input type="text" name="lat" value="" class="lat">
-                      <input type="text" name="lg" value="" class="lon">
+                      <input hidden type="text" name="lat" value="" class="lat">
+                      <input hidden type="text" name="lg" value="" class="lon">
                       <div class="form-group">
                           <label class="control-label"><input type="checkbox" id="radius" name="radius" value="1"> Pencarian berdasarkan lokasi terdekat</label>
                       </div>
                       <div id="fieldRadius" class="form-group hidden">
                           <label class="control-label">Radius</label>
-                          <input type="text" class="form-control" name="jrds" value="25" placeholder="Radius (km)">
+                          <input type="text" class="form-control" name="jrds" value="10" placeholder="Radius (km)">
                       </div>
               </div>
               <div class="modal-footer">
