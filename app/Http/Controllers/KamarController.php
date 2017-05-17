@@ -176,4 +176,9 @@ class KamarController extends Controller
         return Redirect::to(str_replace('/kamar/'.$id_kamar, '', $request->url()))->with('message','Sukses menghapus data Kamar');
         
     }
+
+    public function lihatdetail()
+    {
+        return view('kamar.detailkamar');
+    }
 }
