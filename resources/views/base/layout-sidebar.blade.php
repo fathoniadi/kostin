@@ -116,15 +116,16 @@
 </div>
 <!-- ./wrapper -->
 	<!-- jQuery 2.2.3 -->
-	<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script src="{{URL::asset('/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 	<!-- Bootstrap 3.3.6 -->
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
 	<!-- FastClick -->
-	<script src="../plugins/fastclick/fastclick.js"></script>
+	<script src="{{URL::asset('/plugins/fastclick/fastclick.js')}}"></script>
 	<!-- AdminLTE App -->
-	<script src="../dist/js/app.min.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="../dist/js/demo.js"></script>
+
+	<script src="{{URL::asset('/js/app.min.js')}}"></script>
+	<script src="{{URL::asset('/js/demo.js')}}"></script>
+	<script src="{{URL::asset('/js/sweetalert2.min.js')}}"></script>
 	@yield('moreJs')
 
 </body>
