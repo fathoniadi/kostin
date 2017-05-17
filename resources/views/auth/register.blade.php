@@ -5,8 +5,17 @@
 @endsection
 
 @section('content')
+	@if ($errors->count()>0)
+	    <div class="alert alert-danger alert-dismissible" role="alert">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        @foreach ($errors->all() as $error)
+	            <p>{!! $error !!}</p>
+	        @endforeach
+	    </div>
+	@endif
 	<div class="register-box-body">
-	    <form action="../../index.html" method="post">
+	    <form action="/register" method="post">
+	    	{{csrf_field()}}
 		      	<div class="form-group has-feedback">
 		        	<input type="text" class="form-control" placeholder="Email" name="email">
 		        	<span class="glyphicon glyphicon-envelope form-control-feedback"></span>

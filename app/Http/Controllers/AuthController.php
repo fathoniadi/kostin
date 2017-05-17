@@ -12,6 +12,7 @@ use Redirect;
 use Uuid;
 use Session;
 use DB;
+use App\Pengguna;
 
 class AuthController extends Controller
 {
@@ -26,12 +27,6 @@ class AuthController extends Controller
     public function register()
     {
     	return view('auth.register');
-    }
-
-
-    public function doRegister(Request $request)
-    {
-
     }
 
     public function logout()
@@ -58,7 +53,7 @@ class AuthController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-    	if(Auth::attempt(['email_pengguna' => $request->email , 'password' => $request->password])){
+    	if(Auth::attempt(['email' => $request->email , 'password' => $request->password])){
             return redirect('/dashboard');
         }
         return redirect()->back()->withErrors('Email atau Password salah');
@@ -69,11 +64,13 @@ class AuthController extends Controller
     	$messagesError = [ 
             'email.required' => 'Email tidak boleh kosong',
             'password.required' => 'Password tidak boleh kosong',
+            'konfirmasi.required' => 'Konfirmasi Password tidak boleh kosong'
             ];
-            
+
     	$validator = Validator::make($request->all(), [ 
                 'email' => 'required',
                 'password' => 'required',
+                'konfirmasi' => 'required|same:password'
             ], $messagesError);
 
         if($validator->fails()) 
@@ -84,7 +81,7 @@ class AuthController extends Controller
 
     	$pengguna = new Pengguna;
     	$pengguna->email = $request->email;
-    	$pengguna->password_pengguna = bcrypt($request->password);
+    	$pengguna->password = bcrypt($request->password);
 
         $pengguna->save();
 
