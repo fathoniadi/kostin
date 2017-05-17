@@ -63,4 +63,31 @@ class AuthController extends Controller
         }
         return redirect()->back()->withErrors('Email atau Password salah');
     }
+
+    public function doRegister(Request $request)
+    {
+    	$messagesError = [ 
+            'email.required' => 'Email tidak boleh kosong',
+            'password.required' => 'Password tidak boleh kosong',
+            ];
+            
+    	$validator = Validator::make($request->all(), [ 
+                'email' => 'required',
+                'password' => 'required',
+            ], $messagesError);
+
+        if($validator->fails()) 
+        { 
+            return Redirect::to('/register')
+                ->withErrors($validator)->withInput();
+        }
+
+    	$pengguna = new Pengguna;
+    	$pengguna->email = $request->email;
+    	$pengguna->password_pengguna = bcrypt($request->password);
+
+        $pengguna->save();
+
+        return redirect('/login')->with('success','Anda berhasil mendaftarkan diri.');    	
+    }
 }

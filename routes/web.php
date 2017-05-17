@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/login', 'AuthController@login');
 Route::post('/login', 'AuthController@doLogin');
 Route::get('/register', 'AuthController@register');
+Route::post('/register', 'AuthController@doRegister');
 Route::get('/datadiri', 'DatadiriController@index');
 
 
