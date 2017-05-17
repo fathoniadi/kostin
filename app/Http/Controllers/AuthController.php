@@ -53,7 +53,10 @@ class AuthController extends Controller
         }
 
     	if(Auth::attempt(['email' => $request->email , 'password' => $request->password])){
+<<<<<<< Updated upstream
             
+=======
+>>>>>>> Stashed changes
             return redirect('/dashboard');
         }
         return redirect()->back()->withErrors('Email atau Password salah');
