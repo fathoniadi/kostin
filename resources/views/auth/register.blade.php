@@ -14,7 +14,7 @@
 	    </div>
 	@endif
 	<div class="register-box-body">
-	    <form action="/register" method="post">
+	    <form action="{{ url('/register') }}" method="post">
 	    	{{csrf_field()}}
 		      	<div class="form-group has-feedback">
 		        	<input type="text" class="form-control" placeholder="Email" name="email">

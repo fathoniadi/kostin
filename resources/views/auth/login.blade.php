@@ -13,6 +13,13 @@
 	        @endforeach
 	    </div>
 	@endif
+	@if(Session::get('message'))
+	    <div class="alert alert-success alert-dismissible" role="alert">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        <h4>Sukses!</h4> 
+	        {{Session::get('message')}}.
+	    </div>
+	@endif
 	<div class="login-box-body">
 		<p class="login-box-msg">Login</p>
 		<form action="{{ url('/login') }}" method="post">

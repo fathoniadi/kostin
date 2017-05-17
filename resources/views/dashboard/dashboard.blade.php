@@ -34,7 +34,8 @@
 								<div class="col-sm-12 panel-kost" style="padding: 10px">
 									<a href="{{ url('/dashboard/kamar/create') }}" class="btn btn-primary pull-right" title="">Tambah Kamar Kost</a>
 								</div>
-								@foreach ($kamars as $key => $kamar)
+								@if ($kamars->count()>0)
+									@foreach ($kamars as $key => $kamar)
 									<div class="col-sm-12 panel-kost">
 										<div class="col-md-8">
 					                        <div class="row">
@@ -126,6 +127,9 @@
 					                	<div class="clearfix"></div>
 									</div>
 								@endforeach
+								@else
+									<h4 style="text-align: center;">Anda belum memiliki data kamar kost</h4>
+								@endif
 							</div>
 						</div>
 						<div class="box-footer text-right">

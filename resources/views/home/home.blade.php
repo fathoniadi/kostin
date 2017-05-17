@@ -6,24 +6,27 @@
 
 @section('content')
 	<div class="col-md-4" style="position: absolute;top: 55%; left: 20%;transform: translateY(-50%)">
-      <h1 style="font-size:76px;"><b>KOST</b>IN</h1>
+      <h1  style="font-size:76px; color: white"><b>KOST</b>IN</h1>
     </div>
     <div class="col-md-4" style="position: absolute;top: 55%; left: 50%;transform: translateY(-50%)">
       <h4 style="color: white">Cari Kost</h4>
       <form action="" method="get" accept-charset="utf-8">
         <div class="form-group">
             <label class="control-label" style="color: white">Provinsi</label>
-            <select name="provinsi" class="form-control">
-                <option value="">Provinsi</option>
+            <select name="provinsi" id="provinsi" class="form-control">
+                <option value="0">Provinsi</option>
+                @foreach ($provinsis as $provinsi)
+                  <option value="{{$provinsi->id_provinsi}}">{{$provinsi->nama_provinsi}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
             <label class="control-label" style="color: white">Kota</label>
-            <select name="kota" class="form-control">
+            <select name="kota" id="kota" class="form-control">
                 <option value="">Kota</option>
             </select>
         </div>
-        <a href="#" id="moreSearch" title="" data-toggle="modal" data-target="#customModal">Custom Search</a>
+        <a href="#" style="color: white; font-weight: bolder;" id="moreSearch" title="" data-toggle="modal" data-target="#customModal">Custom Search</a>
         <div class="row">
         <!-- /.col -->
           <button type="submit" class="btn btn-primary btn-flat" style="position:absolute;right:0;margin-right:15px;">Cari</button>
@@ -48,13 +51,16 @@
                   <form action="" method="get">
                       <div class="form-group">
                           <label class="control-label">Provinsi</label>
-                          <select name="provinsi" class="form-control">
-                              <option value="">Provinsi</option>
+                          <select id="provinsi_cs" name="provinsi" class="form-control">
+                              <option value="0">Provinsi</option>
+                              @foreach ($provinsis as $provinsi)
+                                <option value="{{$provinsi->id_provinsi}}">{{$provinsi->nama_provinsi}}</option>
+                              @endforeach
                           </select>
                       </div>
                       <div class="form-group">
                           <label class="control-label">Kota</label>
-                          <select name="kota" class="form-control">
+                          <select id="kota_cs" name="kota" class="form-control">
                               <option value="">Kota</option>
                           </select>
                       </div>
@@ -62,6 +68,8 @@
                           <label class="control-label">Kata Kunci</label>
                           <input type="text" class="form-control" name="keyword" value="" placeholder="Kata Kunci">
                       </div>
+                      <input type="text" name="lat" value="" class="lat">
+                      <input type="text" name="lg" value="" class="lon">
                       <div class="form-group">
                           <label class="control-label"><input type="checkbox" id="radius" name="radius" value=""> Pencarian berdasarkan lokasi terdekat</label>
                       </div>
@@ -97,27 +105,91 @@
 @endsection
 
 @section('moreJs')
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js??sensor=false&libraries=places&key=AIzaSyA2HYBg5HU17qWpTDKGM7nsrxclhcvN5Go"></script>
 	<script>
-	  $(document).on('click','.btn-delete', function (e) {
-	            e.preventDefault();
-	            e.stopPropagation();
 
-	            swal({
-	              title: 'Apakah anda yakin?',
-	              text: "Data sudah terhapus tidak dapat dikembalikan lagi.",
-	              type: 'warning',
-	              showCancelButton: true,
-	              confirmButtonColor: '#3085d6',
-	              cancelButtonColor: '#d33',
-	              cancelButtonText:'Batalkan',
-	              confirmButtonText: 'Ya, Hapus!'
-	            }).then(function () {
-	              swal(
-	                'Deleted!',
-	                'Your file has been deleted.',
-	                'success'
-	              )
-	            });
-	        });
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, errorPosition, {
+                    timeout: 5000
+                });
+            } else {
+                alert('Browser tidak mendukung')
+            }
+        }
+
+        function errorPosition(position)
+        {
+
+        }
+
+        function showPosition(position) {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+
+          $('.lat').val(lat);
+          $('.lon').val(lon); 
+
+        };
+
+	  $(document).on('click', '#radius', function(e){
+            var flag = $(this).is(':checked');
+            setTimeout(function() {getLocation();}, 1000);
+            if(flag)
+            {
+                swal({
+                  title: '',
+                  text: "Pastikan gps anda aktif!",
+                  type: 'warning'
+                });
+                $('#fieldRadius').removeClass('hidden');
+            }
+            else
+            {
+                $('#fieldRadius').addClass('hidden');
+            }
+        });
+
+    $(document).on('change', '#provinsi', function(e){
+            e.preventDefault();
+            var id_provinsi = $(this).val();
+            $.ajax({
+                url: "{{url('/api/kotabyidprovinsi')}}/"+id_provinsi,
+            })
+            .done(function() {
+            })
+            .fail(function() {
+            })
+            .always(function(response) {
+                $('#kota').html('<option value="">Kota</option>');
+                if(!response) return false;
+                var kotas = JSON.parse(response);
+                $.each(kotas, function(index, val) {
+                     $('#kota').append('<option value="'+kotas[index].id_kota+'">'+kotas[index].nama_kota+'</option>');
+                });
+            });
+            
+        });
+
+    $(document).on('change', '#provinsi_cs', function(e){
+            e.preventDefault();
+            var id_provinsi = $(this).val();
+            $.ajax({
+                url: "{{url('/api/kotabyidprovinsi')}}/"+id_provinsi,
+            })
+            .done(function() {
+            })
+            .fail(function() {
+            })
+            .always(function(response) {
+                $('#kota_cs').html('<option value="">Kota</option>');
+                if(!response) return false;
+                var kotas = JSON.parse(response);
+                $.each(kotas, function(index, val) {
+                     $('#kota_cs').append('<option value="'+kotas[index].id_kota+'">'+kotas[index].nama_kota+'</option>');
+                });
+            });
+            
+        });
 	</script>
 @endsection

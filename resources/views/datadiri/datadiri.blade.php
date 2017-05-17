@@ -23,6 +23,13 @@
                         @endforeach
                     </div>
                 @endif
+                @if(Session::get('message'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4>Sukses!</h4> 
+                        {{Session::get('message')}}.
+                    </div>
+                @endif
 				<div class="col-md-12">
 					<!-- general form elements -->
 					<div class="box box-primary" style="padding:10px">
@@ -36,7 +43,7 @@
                                 <div class="col-md-9">
                                     <div class="form-group col-md-9 pull-right">
                                         <label class="control-label">Nama</label>
-                                        <input type="text" name="nama" value="" class="form-control" placeholder="Nama">
+                                        <input type="text" name="nama" value="{{Auth::user()->nama_pengguna}}" class="form-control" placeholder="Nama">
                                     </div>
                                     <div class="form-group col-md-9 pull-right">
                                         <label class="control-label">Alamat</label>

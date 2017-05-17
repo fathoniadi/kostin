@@ -10,6 +10,7 @@
 			<div class="navbar-custom-menu">
 				<ul class="nav navbar-nav">
 					<!-- User Account: style can be found in dropdown.less -->
+					@if(Auth::user())
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="user-image" alt="User Image">
@@ -35,6 +36,7 @@
 							</li>
 						</ul>
 					</li>
+					@endif
 				</ul>
 			</div>
 		</nav>

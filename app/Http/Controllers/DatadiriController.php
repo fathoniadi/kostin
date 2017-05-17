@@ -69,7 +69,7 @@ class DatadiriController extends Controller
         $pengguna->jenis_kel_pengguna = $request->jeniskelamin;
         $pengguna->save();
 
-        return redirect('/datadiri')->with('success','Anda berhasil mengupdate data.');
+        return redirect('/datadiri')->with('message','Anda berhasil mengupdate data.');
     }
 
     /**

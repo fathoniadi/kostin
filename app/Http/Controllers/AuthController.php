@@ -85,6 +85,6 @@ class AuthController extends Controller
 
         $pengguna->save();
 
-        return redirect('/login')->with('success','Anda berhasil mendaftarkan diri.');    	
+        return redirect('/login')->with('message','Anda berhasil mendaftarkan diri.');    	
     }
 }

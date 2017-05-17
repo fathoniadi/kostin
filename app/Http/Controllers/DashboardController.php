@@ -3,6 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Html\FormFacade;
+use Illuminate\Support\Facades\Validator;
+
+use Response;
+use Redirect;
+use Uuid;
+use Session;
+use DB;
+use File;
+
 use App\Kamar;
 
 class DashboardController extends Controller
@@ -14,7 +26,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $data['kamars'] = Kamar::with('medias')->paginate(5);
+        $data['kamars'] = Kamar::with('medias')->where('id_pengguna', Auth::user()->id_pengguna)->paginate(5);
         return view('dashboard.dashboard', $data);
     }
 
