@@ -21,7 +21,7 @@ Route::post('/login', 'AuthController@doLogin');
 Route::get('/register', 'AuthController@register');
 Route::post('/register', 'AuthController@doRegister');
 Route::get('/datadiri', 'DatadiriController@index');
-
+Route::post('/datadiri', 'DatadiriController@doDatadiri');
 
 Route::resource('/dashboard', 'DashboardController');
 
