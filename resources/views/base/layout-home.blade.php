@@ -38,9 +38,38 @@
       <!-- Sidebar toggle button-->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="{{ url('/register') }}" style="color:white;">Register&nbsp;</a></li>
-          <li><h4 style="color:white;">&nbsp;|&nbsp;</h4></li>
-          <li><a href="{{ url('/login') }}" style="color:white;margin-right:15px;">Login</a></li>
+
+          @if(Auth::user())
+            <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{Auth::user()->email}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="img-circle" alt="User Image">
+
+                <p>
+                  {{Auth::user()->email}}
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="col-md-6">
+                  <a href="{{url('/datadiri')}}" class="btn btn-default btn-flat">Data Diri</a>
+                </div>
+                <div class="col-md-6">
+                  <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          @else
+            <li><a href="{{ url('/register') }}" style="color:white;">Register&nbsp;</a></li>
+            <li><h4 style="color:white;">&nbsp;|&nbsp;</h4></li>
+            <li><a href="{{ url('/login') }}" style="color:white;margin-right:15px;">Login</a></li>
+          @endif
         </ul>
       </div>
     </nav>

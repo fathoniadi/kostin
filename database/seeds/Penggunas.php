@@ -14,7 +14,7 @@ class Penggunas extends Seeder
     {
         $pengguna = new Pengguna();
         $pengguna->email = 'fathoni.adi@gmail.com';
-        $pengguna->password_pengguna = bcrypt('kucinglucu');
+        $pengguna->password = bcrypt('kucinglucu');
         $pengguna->nama_pengguna = 'Thoni';
         $pengguna->alamat_pengguna = 'Klaten';
         $pengguna->no_tlp_pengguna = '085641112322';

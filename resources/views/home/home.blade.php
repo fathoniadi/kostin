@@ -1,7 +1,7 @@
 @extends('base.layout-home')
 
 @section('title')
-	Dashboard
+	Kost.in
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-4" style="position: absolute;top: 55%; left: 50%;transform: translateY(-50%)">
       <h4 style="color: white">Cari Kost</h4>
-      <form action="" method="get" accept-charset="utf-8">
+      <form action="{{ url('/search') }}" method="get" accept-charset="utf-8">
         <div class="form-group">
             <label class="control-label" style="color: white">Provinsi</label>
             <select name="provinsi" id="provinsi" class="form-control">
@@ -48,7 +48,7 @@
                   <h4 class="modal-title">Custom Search</h4>
               </div>
               <div class="modal-body">
-                  <form action="" method="get">
+                  <form action="{{ url('/search') }}" method="get">
                       <div class="form-group">
                           <label class="control-label">Provinsi</label>
                           <select id="provinsi_cs" name="provinsi" class="form-control">
@@ -71,17 +71,17 @@
                       <input type="text" name="lat" value="" class="lat">
                       <input type="text" name="lg" value="" class="lon">
                       <div class="form-group">
-                          <label class="control-label"><input type="checkbox" id="radius" name="radius" value=""> Pencarian berdasarkan lokasi terdekat</label>
+                          <label class="control-label"><input type="checkbox" id="radius" name="radius" value="1"> Pencarian berdasarkan lokasi terdekat</label>
                       </div>
                       <div id="fieldRadius" class="form-group hidden">
                           <label class="control-label">Radius</label>
-                          <input type="text" class="form-control" name="jarak_radius" value="" placeholder="Radius (km)">
+                          <input type="text" class="form-control" name="jrds" value="25" placeholder="Radius (km)">
                       </div>
-                  </form>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-danger btn-fill" data-dismiss="modal">Cancel</button>
-                  <a href="" class="btn btn-primary btn-fill pull-right">Cari</a>
+                  <button type="submit" class="btn btn-primary btn-fill pull-right">Cari</a>
+                  </form>
               </div>
           </div>
 
@@ -110,9 +110,9 @@
 
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, errorPosition, {
+                $.when(navigator.geolocation.getCurrentPosition(showPosition, errorPosition, {
                     timeout: 5000
-                });
+                }));
             } else {
                 alert('Browser tidak mendukung')
             }
@@ -124,9 +124,8 @@
         }
 
         function showPosition(position) {
-            lat = position.coords.latitude;
-            lon = position.coords.longitude;
-
+          lat = position.coords.latitude;
+          lon = position.coords.longitude;
           $('.lat').val(lat);
           $('.lon').val(lon); 
 
@@ -134,12 +133,12 @@
 
 	  $(document).on('click', '#radius', function(e){
             var flag = $(this).is(':checked');
-            setTimeout(function() {getLocation();}, 1000);
+            $.when(setInterval(function(){ getLocation()}, 1000));
             if(flag)
             {
                 swal({
                   title: '',
-                  text: "Pastikan gps anda aktif!",
+                  text: "Pastikan GPS anda aktif!",
                   type: 'warning'
                 });
                 $('#fieldRadius').removeClass('hidden');

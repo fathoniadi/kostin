@@ -96,6 +96,8 @@ class KamarController extends Controller
         $kamar->kk = ($request->fasilitas_kulkas?1:0);
         $kamar->lon = $request->longitude;
         $kamar->lat = $request->latitude;
+        $kamar->provinsi_kamar = $request->provinsi;
+        $kamar->kota_kamar = $request->kota;
         $kamar->alamat_kamar = $request->lokasi;
 
         if($kamar->save())
