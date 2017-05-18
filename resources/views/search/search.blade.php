@@ -244,9 +244,11 @@
 			</div>
 			@endforeach
 		</div>
+		@if($kamars->total()>5)
 		<div class="box-footer text-right">
     		{{$kamars->appends($params)->links()}}
     	</div>
+    	@endif
 		
 		<!-- /.row -->
 	</section>
