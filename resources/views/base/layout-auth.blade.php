@@ -16,7 +16,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
 	<div class="login-logo">
-		<a href="../index2.html"><b>KOST</b>IN</a>
+		<a href="../index2.html"><b>@yield('title')</b></a>
 	</div>
 	@yield('content')
 </div>
