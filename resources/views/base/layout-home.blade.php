@@ -56,18 +56,17 @@
       </div>
     </nav>
   </header>
-  <footer class="main-footer" style="position: fixed;bottom: 0px;">
-    <div class="pull-right hidden-xs">
-      <b>IMK</b> E
+    <div class="content-wrapper" style="background-image: url('{{URL::asset("/img/kos1.jpg")}}');background-size: cover; background-position: center; ">
     </div>
-    <strong>Copyright &copy; 2017 <a>Kost.in</a>.</strong> All rights
-    reserved.
-  </footer>
-  <div style="transform: scale(1.1);filter: blur(8px);-webkit-filter: blur(8px);-moz-filter: blur(8px);-o-filter: blur(8px);-ms-filter: blur(0px);">
-    <div class="content-wrapper" style="background-image: url('{{URL::asset("/img/kos1.jpg")}}');background-size: cover; background-position: center;">
-    </div>
-  </div>
   @yield('content')
+     <footer class="main-footer" style="position: fixed;bottom: 0px; background-color: transparent;">
+      <div class="pull-right hidden-xs">
+        <b>IMK</b> E
+      </div>
+      <strong>Copyright &copy; 2017 <a>Kost.in</a>.</strong> All rights
+      reserved.
+    </footer>
+
   
   
 
