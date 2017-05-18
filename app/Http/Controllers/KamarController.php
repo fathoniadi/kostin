@@ -276,4 +276,14 @@ class KamarController extends Controller
         if(!$data['kamar']) return abort(404);
         return view('detailkamar.detailkamar', $data);
     }
+
+
+    public function deleteMedia($id_media)
+    {
+        $media = Media::find($id_media);
+        if(!$media)
+            return redirect()->back()->withErrors('Gagal menghapus gambar');
+        $media->delete();
+        return redirect()->back()->with('message','Sukses menghapus gambar');
+    }
 }

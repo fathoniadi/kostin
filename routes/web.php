@@ -30,5 +30,6 @@ Route::group(['middleware' => ['Autentifikasi']], function() {
 	Route::get('/datadiri', 'DatadiriController@index');
 	Route::post('/datadiri', 'DatadiriController@doDatadiri');
 	Route::resource('/dashboard', 'DashboardController');
+	Route::get('/dashboard/kamar/deletemedia/{id_media}', 'KamarController@deleteMedia');
 	Route::resource('/dashboard/kamar', 'KamarController');
 });

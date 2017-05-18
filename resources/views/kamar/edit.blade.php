@@ -44,6 +44,13 @@
                                     @endforeach
                                 </div>
                             @endif
+                            @if(Session::get('message'))
+                                <div class="alert alert-success alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4>Sukses!</h4> 
+                                    {{Session::get('message')}}.
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
@@ -130,8 +137,19 @@
                                             <div id="list-media">
                                                 
                                             </div>
-                                            <input type="file" class="image-uploads" name="media[]"/> </div>
+                                            <input type="file" class="image-uploads" name="media[]"/> 
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 pull-right">
+                                        <div class="row">
+                                            @foreach ( $kamar->medias as $value)
+                                                <div class="col-md-4" style="text-align: center">
+                                                    <img src="{{ url($value->path_media.$value->nama_media) }}" class="img-responsive img-thumbnail list-gambar" alt="">
+                                                    <a href="{{ url('/dashboard/kamar/deletemedia/') }}/{{$value->id_media}}" class="btn btn-delete-gambar btn-danger">Delete</a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label">Lokasi Peta</label>
                                         <div id="location-picker" style="height: 400px; overflow: hidden;"></div>
