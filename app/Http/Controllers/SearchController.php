@@ -43,18 +43,18 @@ class SearchController extends Controller
                     ->where(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"),'<',$request->jrds);
         
             if($request->harga==3){
-                $data['kamars'] = $data['kamars']->where('harga_kamar','>=','1000001')->paginate(5);
+                $data['kamars'] = $data['kamars']->where('harga_kamar','>=','1000001')->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
             }
             elseif ($request->harga==2) {
-                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(500000,1000000))->paginate(5);
+                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(500000,1000000))->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
             }
             elseif($request->harga==1)
             {
-                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(0,500000))->paginate(5);
+                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(0,500000))->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
 
             }
             else{
-                $data['kamars'] = $data['kamars']->paginate(5);
+                $data['kamars'] = $data['kamars']->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
             }
     	}
     	else{
