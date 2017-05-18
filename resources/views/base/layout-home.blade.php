@@ -41,13 +41,10 @@
                 </p>
               </li>
               <li class="user-footer">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <a href="{{url('/datadiri')}}" class="btn btn-default btn-flat">Data Diri</a>
                 </div>
-                <div class="col-md-4">
-                  <a href="{{url('/dashboard')}}" class="btn btn-default btn-flat">Dashboard</a>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <a href="{{url('/logout')}}" class="btn btn-danger btn-flat">Sign out</a>
                 </div>
               </li>

@@ -32,10 +32,10 @@
 					<!-- Menu Footer-->
 					<li class="user-footer">
 
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<a href="{{url('/datadiri')}}" class="btn btn-default ">Data Diri</a>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<a href="{{url('/logout')}}" class="btn btn-danger ">Sign out</a>
 						</div>
 					</li>
