@@ -31,8 +31,8 @@
 						</div>
 						<div class="box-body">
 							<div class="row">
-								<div class="col-sm-12 panel-kost" style="padding: 10px">
-									<a href="{{ url('/dashboard/kamar/create') }}" class="btn btn-primary pull-right" title="">Tambah Kamar Kost</a>
+								<div class="col-sm-12 panel-kost" style="padding: 10px;">
+									<a href="{{ url('/dashboard/kamar/create') }}" class="btn btn-primary pull-right" title="" style="font-size:20px;">Tambah Kamar Kost</a>
 								</div>
 								@if ($kamars->count()>0)
 									@foreach ($kamars as $key => $kamar)
@@ -47,7 +47,7 @@
 					                                @endif
 					                            </div>
 					                            <div class="col-lg-8">
-					                            	<h3 style="margin-top: 0">{{$kamar->nama_kamar}}</h3>
+					                            	<a href="{{ url('/detailkamar/') }}/{{$kamar->id_kamar}}"><h3 style="margin-top: 0">{{$kamar->nama_kamar}}</h3></a>
 					                                <div class="row">
 					                                @php
 													$fasilitas = [];
@@ -107,7 +107,8 @@
 					                       	<form class="form-delete" action="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}" method="post" accept-charset="utf-8">
 					                       		{{csrf_field()}}
 												{{method_field('DELETE')}}
-				                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
+				                               
+				                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button><a href="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-warning btn-fill pull-right" style="margin-right:5px;">Edit</a>
 				                            </form>
 					                        <div class="col-md-12">
 					                            <h4 @if ($kamar->jumlah_kamar==0)
@@ -127,10 +128,6 @@
 					                            </div>
 					                            @endif
 					                        </div>
-					                        <div class="col-md-12" style="padding: 10px">
-				                                <a href="{{ url('/detailkamar/') }}/{{$kamar->id_kamar}}" class="btn btn-default btn-fill pull-right">Lihat</a>
-				                                <a href="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-warning btn-fill pull-right">Edit</a>
-				                            </div>
 					                    </div>
 					                	<div class="clearfix"></div>
 									</div>
