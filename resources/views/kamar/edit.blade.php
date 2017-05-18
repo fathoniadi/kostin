@@ -1,7 +1,7 @@
 @extends('base.layout-wsidebar')
 
 @section('title')
-	Dashboard
+	Edit Kamar
 @endsection
 
 @section('moreCss')
@@ -16,8 +16,7 @@
 				Edit Kamar Kost
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-				<li><a href="#">Kamar Kost</a></li>
+				<li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 				<li class="active">Edit Kamar Kost</li>
 			</ol>
 		</section>

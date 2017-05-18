@@ -117,15 +117,15 @@
 		                            @endif>Sisa : {{$kamar->jumlah_kamar}}</h4>
 		                            @if ($kamar->jumlah_kamar==0)
 		                            	<div style="padding: 10px;" class="btn-warning btn-fill text-center">
-		                                <p>Kamar Tidak Tersedia</p>
+		                                <h4>Kamar Tidak Tersedia</h4>
 		                            </div>
 		                            @else
-										<div style="padding: 10px;" class="btn-success btn-fill text-center">
-		                                <p>Rp. {{$kamar->harga_kamar}}/@if($kamar->sewa_kamar==1)
+										<div style="padding: 5px;" class="btn-success btn-fill text-center">
+		                                <h3>Rp. {{$kamar->harga_kamar}}/@if($kamar->sewa_kamar==1)
 		                                	Bulan
 		                                @elseif($kamar->sewa_kamar==2)
 		                                	Tahun
-		                                @endif</p>
+		                                @endif</h3>
 		                            </div>
 		                            @endif
 		                        </div>

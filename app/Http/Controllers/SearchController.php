@@ -46,7 +46,7 @@ class SearchController extends Controller
                 $data['kamars'] = $data['kamars']->where('harga_kamar','>=','1000001')->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
             }
             elseif ($request->harga==2) {
-                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(500000,1000000))->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
+                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(500001,1000000))->orderBy(DB::raw("ROUND( 6371 * ACOS(SIN( ".$request->lat." * PI()/180 ) * SIN(lat*PI()/180 ) + COS( ".$request->lat." * PI()/180 ) * COS( lat*PI()/180 )  *  COS( (lon*PI()/180) - (".$request->lg."*PI()/180))), 1)"), 'ASC')->paginate(5);
             }
             elseif($request->harga==1)
             {
@@ -79,7 +79,7 @@ class SearchController extends Controller
                 $data['kamars'] = $data['kamars']->where('harga_kamar','>=','1000001')->paginate(5);
             }
             elseif ($request->harga==2) {
-                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(500000,1000000))->paginate(5);
+                $data['kamars'] = $data['kamars']->whereBetween('harga_kamar', array(500001,1000000))->paginate(5);
             }
             elseif($request->harga==1)
             {

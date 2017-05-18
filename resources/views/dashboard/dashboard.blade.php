@@ -109,7 +109,7 @@
 					                       		{{csrf_field()}}
 												{{method_field('DELETE')}}
 				                               
-				                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button><a href="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-warning btn-fill pull-right" style="margin-right:5px;">Edit</a>
+				                               <button type="button" class="btn btn-danger btn-fill pull-right btn-circle btn-delete" style="" type="button"><span class="fa fa-close" style="font-weight: bolder;"></span></button>
 				                            </form>
 					                        <div class="col-md-12">
 					                            <h4 @if ($kamar->jumlah_kamar==0)
@@ -128,6 +128,10 @@
 					                                @endif</p>
 					                            </div>
 					                            @endif
+					                        </div>
+					                        <div class="col-md-12" style="padding: 10px">
+					                        	<a href="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-info btn-fill pull-right" style="margin-right:5px;">Edit</a>
+					                        	<a href="{{ url('/detailkamar') }}/{{$kamar->id_kamar}}"  class="btn btn-primary btn-fill pull-right" style="margin-right:5px;">Detail Kamar</a>
 					                        </div>
 					                    </div>
 					                	<div class="clearfix"></div>
