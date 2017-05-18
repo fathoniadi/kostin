@@ -18,6 +18,7 @@
 			 folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="{{URL::asset('/css/skins/_all-skins.min.css')}}">
 	<link rel="stylesheet" href="{{URL::asset('/css/sweetalert2.min.css')}}">
+	<link rel="icon" href="{{URL::asset('/tema/assets/img/home-xxl.png')}}" type="image/x-icon"/>
 	@yield('moreCss')
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,9 +44,9 @@
 	<!-- /.content-wrapper -->
 	<footer class="main-footer">
 		<div class="pull-right hidden-xs">
-			<b>Version</b> 2.3.8
+			<b>IMK</b> E
 		</div>
-		<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+		<strong>Copyright &copy; 2017 <a>Kost.in</a>.</strong> All rights
 		reserved.
 	</footer>
 
