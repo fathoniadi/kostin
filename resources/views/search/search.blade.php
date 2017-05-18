@@ -59,7 +59,7 @@
 	                    <option value="">Pilihan Gender</option>
 	                    <option @if(isset($params['gender'])) @if($params['gender'] == 1) selected @endif @endif value="1">Laki-laki</option>
 	                    <option @if(isset($params['gender'])) @if($params['gender'] == 2) selected @endif @endif value="2">Perempuan</option>
-	                    <option @if(isset($params['gender'])) @if($params['gender'] == 3) selected @endif @endif value="3">Campur</option>
+	                    <option @if(isset($params['gender'])) @if($params['gender'] == 3) selected @endif @endif value="">Campur</option>
 	                </select>
 	            </div>
 	        </div>
@@ -244,9 +244,11 @@
 			</div>
 			@endforeach
 		</div>
+		@if($kamars->total()>5)
 		<div class="box-footer text-right">
     		{{$kamars->appends($params)->links()}}
     	</div>
+    	@endif
 		
 		<!-- /.row -->
 	</section>
@@ -415,8 +417,8 @@
 
    		if(params.length==1)
    		{
-   			var paramenter = '?'+$(this).attr('name')+'='+$(this).val();
-   			window.location.href = uri+paramenter;
+   			var parameter = '?'+$(this).attr('name')+'='+$(this).val();
+   			window.location.href = uri+parameter;
    		}
    		else
    		{
@@ -424,8 +426,11 @@
 	   		params = params[1].split('&');
    			for(let i=0; i<params.length; i++)
    			{
+   				console.log(params[i])
    				if(params[i].split('=')[0]=='page'){
+   					console.log('Masuk Page')
    					params[i] = 'page=1';
+   					console.log('Jadinya > '+params[i])
    				}
 
    				if(params[i].split('=')[0] == $(this).attr('name')){
@@ -451,8 +456,10 @@
    			}
 
    			if(flag==0){
-   				var paramenter = '&'+$(this).attr('name')+'='+$(this).val();
-   				window.location.href = uri+paramenter;
+   				var params = params.join('&');
+   				var parameter = '&'+$(this).attr('name')+'='+$(this).val();
+   				console.log('URL '+uri.split('?')[0]+'?'+params+parameter);
+   				window.location.href = uri.split('?')[0]+'?'+params+parameter;
    			}
    			else{
    				var params = params.join('&');
