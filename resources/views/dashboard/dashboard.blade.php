@@ -47,7 +47,7 @@
 					                                @endif
 					                            </div>
 					                            <div class="col-lg-8">
-					                            	<a href="{{ url('/detailkamar/') }}/{{$kamar->id_kamar}}"><h3 style="margin-top: 0">{{$kamar->nama_kamar}}</h3></a>
+					                            	<a href="{{ url('/detailkamar/') }}/{{$kamar->id_kamar}}"><h3 style="margin-top: 0;">{{$kamar->nama_kamar}}</h3></a> 
 					                                <div class="row">
 					                                @php
 													$fasilitas = [];
