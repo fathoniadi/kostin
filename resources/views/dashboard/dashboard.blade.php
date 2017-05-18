@@ -130,7 +130,7 @@
 					                        </div>
 					                        <div class="col-md-12" style="padding: 10px">
 					                        	<a href="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-info btn-fill pull-right" style="margin-right:5px;">Edit</a>
-					                        	<a href="{{ url('/detailkamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-primary btn-fill pull-right" style="margin-right:5px;">Detail Kamar</a>
+					                        	<a href="{{ url('/detailkamar') }}/{{$kamar->id_kamar}}"  class="btn btn-primary btn-fill pull-right" style="margin-right:5px;">Detail Kamar</a>
 					                        </div>
 					                    </div>
 					                	<div class="clearfix"></div>
