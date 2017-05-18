@@ -129,7 +129,7 @@
 					                        </div>
 					                        <div class="col-md-12" style="padding: 10px">
 				                                <a href="{{ url('/detailkamar/') }}/{{$kamar->id_kamar}}" class="btn btn-default btn-fill pull-right">Lihat</a>
-				                                <a href="#"  class="btn btn-warning btn-fill pull-right">Edit</a>
+				                                <a href="{{ url('/dashboard/kamar') }}/{{$kamar->id_kamar}}/edit"  class="btn btn-warning btn-fill pull-right">Edit</a>
 				                            </div>
 					                    </div>
 					                	<div class="clearfix"></div>

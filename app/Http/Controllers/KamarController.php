@@ -76,7 +76,7 @@ class KamarController extends Controller
 
         if($validator->fails()) 
         { 
-            return Redirect::to($request->url().'/create')
+            return Redirect::to($request->url().'/edit')
                 ->withErrors($validator)->withInput();
         }
 
@@ -104,26 +104,29 @@ class KamarController extends Controller
         {
             $destination_path = public_path().'/media';
             $file_uploadeds = array();
-            foreach ($request->file('media') as $key => $value) {
+            if($request->file('media')){
 
-                $name_upload = date('now').$value->getClientOriginalName();
-                if($value->move($destination_path, $name_upload )){
-                    array_push($file_uploadeds, $name_upload);
+                foreach ($request->file('media') as $key => $value) {
+
+                    $name_upload = date('now').$value->getClientOriginalName();
+                    if($value->move($destination_path, $name_upload )){
+                        array_push($file_uploadeds, $name_upload);
+                    }
+                }
+
+                foreach ($file_uploadeds as $value) {
+                    $media = new Media();
+                    $media->nama_media = $value;
+                    $media->path_media = '/media/';
+                    $media->id_kamar = $kamar->id_kamar;
+                    $media->save();
                 }
             }
-
-            foreach ($file_uploadeds as $value) {
-                $media = new Media();
-                $media->nama_media = $value;
-                $media->path_media = '/media/';
-                $media->id_kamar = $kamar->id_kamar;
-                $media->save();
-            }
-
-            return Redirect::to(str_replace('/kamar', '', $request->url()))->with('message','Sukses menyimpan data Kamar Baru');
+            var_dump("A");
+            return Redirect::to(str_replace($id_kamar, '', $request->url()))->with('message','Sukses menyimpan data Kamar Baru');
         }
         else{
-            return Redirect::to($request->url().'/create')->withErrors('<strong>Gagal!</strong> Gagal menyimpan data Kamar Baru');
+            return Redirect::to($request->url().'/edit')->withErrors('<strong>Gagal!</strong> Gagal menyimpan data Kamar Baru');
             
         }
     }
@@ -134,9 +137,9 @@ class KamarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_kamar)
     {
-        //
+        
     }
 
     /**
@@ -145,9 +148,13 @@ class KamarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_kamar)
     {
-        //
+        $data['kamar'] = Kamar::with('medias')->find($id_kamar);
+        if(!$data['kamar'])
+            return abort(404);
+        $data['provinsis'] = Provinsi::get();
+        return view('kamar.edit', $data);
     }
 
     /**
@@ -157,9 +164,92 @@ class KamarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_kamar)
     {
-        //
+        $kamar = Kamar::with('medias')->find($id_kamar);
+        if(!$kamar) return abort(404);
+
+        $messages = [
+            'judul.required' => 'Judul harus diisi.',
+            'ketersediaan.required' => 'Jumlah Ketersediaan harus diisi.',
+            'harga.required' => 'Harga harus diisi.',
+            'harga.numeric' => 'Harga diisi dengan angka.',
+            'ketersediaan.numeric' => 'Jumlah Ketersediaan diisi dengan angka.',
+            'penyewaan.required' => 'Penyewaan harus diisi.',
+            'gender.required' => 'Gender harus diisi.',
+            'provinsi.min' => 'Provinsi harus diisi.',
+            'kota.required' => 'Kota harus diisi.',
+            'lokasi.required' => 'Lokasi harus diisi.',
+        ];
+
+
+        $validator = Validator::make($request->all(), [
+            'judul' => 'required',
+            'harga' => 'required|numeric',
+            'penyewaan' => 'required',
+            'ketersediaan' => 'required|numeric',
+            'gender' => 'required',
+            'provinsi' => 'min:1',
+            'kota' => 'required',
+            'lokasi' => 'required',
+        ], $messages);
+
+        if($validator->fails()) 
+        { 
+            return Redirect::to($request->url().'/edit')
+                ->withErrors($validator)->withInput();
+        }
+
+        /*$kamar = new Kamar();*/
+        $kamar->nama_kamar = $request->judul;
+        $kamar->jumlah_kamar = $request->ketersediaan;
+        $kamar->harga_kamar = $request->harga;
+        $kamar->sewa_kamar = $request->penyewaan;
+        $kamar->gender_kamar = $request->gender;
+       /* $kamar->id_pengguna = Auth::user()->id_pengguna;*/
+        $kamar->tv = ($request->fasilitas_tv?1:0);
+        $kamar->ac = ($request->fasilitas_ac?1:0);
+        $kamar->km = ($request->fasilitas_km?1:0);
+        $kamar->wf = ($request->fasilitas_wifi?1:0);
+        $kamar->mj = ($request->fasilitas_meja?1:0);
+        $kamar->kr = ($request->fasilitas_kursi?1:0);
+        $kamar->kk = ($request->fasilitas_kulkas?1:0);
+        $kamar->lon = $request->longitude;
+        $kamar->lat = $request->latitude;
+        $kamar->provinsi_kamar = $request->provinsi;
+        $kamar->kota_kamar = $request->kota;
+        $kamar->alamat_kamar = $request->lokasi;
+
+        if($kamar->save())
+        {
+            $destination_path = public_path().'/media';
+            $file_uploadeds = array();
+            if($request->file('media')){
+
+                foreach ($request->file('media') as $key => $value) {
+
+                    $name_upload = date('now').$value->getClientOriginalName();
+                    if($value->move($destination_path, $name_upload )){
+                        array_push($file_uploadeds, $name_upload);
+                    }
+                }
+
+                foreach ($file_uploadeds as $value) {
+                    $media = new Media();
+                    $media->nama_media = $value;
+                    $media->path_media = '/media/';
+                    $media->id_kamar = $kamar->id_kamar;
+                    $media->save();
+                }
+            }
+
+            return Redirect::to(str_replace('/kamar/'.$id_kamar, '', $request->url()))->with('message','Sukses menyimpan data Kamar yang sudah diubah');
+        }
+        else{
+            return Redirect::to($request->url().'/edit')->withErrors('<strong>Gagal!</strong> Gagal menyimpan data Kamar yang sudah diubah');
+            
+        }
+
     }
 
     /**
