@@ -59,7 +59,7 @@
 	                    <option value="">Pilihan Gender</option>
 	                    <option @if(isset($params['gender'])) @if($params['gender'] == 1) selected @endif @endif value="1">Laki-laki</option>
 	                    <option @if(isset($params['gender'])) @if($params['gender'] == 2) selected @endif @endif value="2">Perempuan</option>
-	                    <option @if(isset($params['gender'])) @if($params['gender'] == 3) selected @endif @endif value="">Campur</option>
+	                    <option @if(isset($params['gender'])) @if($params['gender'] == 3) selected @endif @endif value="3">Campur</option>
 	                </select>
 	            </div>
 	        </div>
