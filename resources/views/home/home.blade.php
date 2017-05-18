@@ -6,7 +6,7 @@
 
 @section('content')
 	<div class="col-md-4" style="position: absolute;top: 55%; left: 20%;transform: translateY(-50%)">
-      <h1  style="font-size:76px; color: white"><b>KOST</b>IN</h1>
+      <h1  style="font-size:100px; color: white"><b>KOST</b>IN</h1>
     </div>
     <div class="col-md-4" style="position: absolute;top: 55%; left: 50%;transform: translateY(-50%)">
       <h4 style="color: white">Cari Kost</h4>
@@ -88,16 +88,20 @@
 
 @section('moreCss')
 	<style>
-	    .main-sidebar { background-color: white !important }
-	    .btn-circle {
-	            width: 40px;
-	            height: 40px;
-	            padding: 6px 0px;
-	            border-radius: 50%;
-	            text-align: center;
-	            font-size: 13px;
-	            color: white;
-	        }
+    .main-sidebar
+    { 
+      background-color: white !important 
+    }
+    .btn-circle 
+    {
+      width: 40px;
+      height: 40px;
+      padding: 6px 0px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 13px;
+      color: white;
+    }
 	</style>
 @endsection
 

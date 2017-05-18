@@ -33,5 +33,6 @@
 	});
 </script>
 @yield('moreJs')
+
 </body>
 </html>
