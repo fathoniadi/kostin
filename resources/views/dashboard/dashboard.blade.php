@@ -33,6 +33,7 @@
 							<div class="row">
 								<div class="col-sm-12 panel-kost" style="padding: 10px;">
 									<a href="{{ url('/dashboard/kamar/create') }}" class="btn btn-primary pull-right" title="" style="font-size:20px;">Tambah Kamar Kost</a>
+									<br>
 								</div>
 								@if ($kamars->count()>0)
 									@foreach ($kamars as $key => $kamar)
