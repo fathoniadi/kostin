@@ -21,7 +21,6 @@
 	    </div>
 	@endif
 	<div class="login-box-body">
-		<p class="login-box-msg">Login</p>
 		<form action="{{ url('/login') }}" method="post">
 			{{csrf_field()}}
 			{{method_field('POST')}}
@@ -33,11 +32,11 @@
 				<input type="password" name="password" class="form-control" placeholder="Password">
 				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 			</div>
-			<div class="form-group">
-				<!-- /.col -->
-					<button type="submit" class="btn btn-primary btn-flat">Login</button>
-				<!-- /.col -->
-			</div>
+			<div class="row">
+		        <!-- /.col -->
+		        	<div class="col-xs-4 pull-right">
+		          	<button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+		        </div>
 		</form>
 	</div>
 @endsection

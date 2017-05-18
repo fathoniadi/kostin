@@ -142,6 +142,7 @@
 					<div class="col-md-8">
 	                    <div class="row">
 	                        <div class="col-lg-4">
+	                        	<br>
 	                           @if($kamar->medias->count())
                                 	<img src="{{ url($kamar->medias[0]->path_media.$kamar->medias[0]->nama_media) }}" class="img-responsive img-thumbnail" alt="">
                                 @else
@@ -149,15 +150,17 @@
                                 @endif
 	                        </div>
 	                        <div class="col-lg-8">
-	                        	<h3 style="margin-top: 0"><a href="{{ url('/detailkamar') }}/{{$kamar->id_kamar}}">{{$kamar->nama_kamar}}</a> (Kost @if ($kamar->gender_kamar==1)
+	                        	<h3 style="margin-top: 5;display:inline-block;"><a href="{{ url('/detailkamar') }}/{{$kamar->id_kamar}}">{{$kamar->nama_kamar}}</a></h3> <h4 style="display:inline-block;">&nbsp;|&nbsp;Kost @if ($kamar->gender_kamar==1)
 									Laki-laki
 								@elseif($kamar->gender_kamar==2)
 									Perempuan
 								@else
 									Campur
-								@endif)</h3>
-	                        	<h4>Lokasi: {{$kamar->alamat_kamar}}</h4>
-	                        	<h4>No Telepon: {{$kamar->owner->no_tlp_pengguna}}</h4>
+								@endif</h4>
+	                        	<h4>Lokasi</h4>
+	                        	<h5 style="display:inline-block;">{{$kamar->alamat_kamar}}</h5>
+	                        	<h4>No Telepon</h4>
+	                        	<h5>{{$kamar->owner->no_tlp_pengguna}}</h5>
 	                            <div class="row">
 	                                @php
 									$fasilitas = [];
@@ -194,7 +197,7 @@
 										
 											<div class="col-md-4">
 										@if($fasilitas)
-											<label class="control-label">Fasilitas</label>
+											<h4>Fasilitas</h4>
 										@endif
 										@foreach ($fasilitas as $key => $element)
 											<div class="form-group">              
