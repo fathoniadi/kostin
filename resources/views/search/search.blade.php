@@ -1,7 +1,7 @@
 @extends('base.layout-sidebar')
 
 @section('title')
-	Dashboard
+	Hasil Pencarian
 @endsection
 
 @section('navbar')

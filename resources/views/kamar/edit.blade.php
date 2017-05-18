@@ -1,7 +1,7 @@
 @extends('base.layout-wsidebar')
 
 @section('title')
-	Dashboard
+	Edit Kamar
 @endsection
 
 @section('moreCss')
