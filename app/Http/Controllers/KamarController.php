@@ -76,7 +76,7 @@ class KamarController extends Controller
 
         if($validator->fails()) 
         { 
-            return Redirect::to($request->url().'/edit')
+            return Redirect::to($request->url().'/create')
                 ->withErrors($validator)->withInput();
         }
 
@@ -122,11 +122,10 @@ class KamarController extends Controller
                     $media->save();
                 }
             }
-            var_dump("A");
-            return Redirect::to(str_replace($id_kamar, '', $request->url()))->with('message','Sukses menyimpan data Kamar Baru');
+            return Redirect::to(str_replace('/kamar', '', $request->url()))->with('message','Sukses menyimpan data Kamar Baru');
         }
         else{
-            return Redirect::to($request->url().'/edit')->withErrors('<strong>Gagal!</strong> Gagal menyimpan data Kamar Baru');
+            return Redirect::to($request->url().'/create')->withErrors('<strong>Gagal!</strong> Gagal menyimpan data Kamar Baru');
             
         }
     }
