@@ -130,7 +130,8 @@
 				@else
 					<div class="alert alert-danger alert-dismissible" role="alert">
 			            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-			            Hasil Pencarian Tidak Ditemukan
+			            Hasil Pencarian Tidak Ditemukan @if(isset($params['radius'])) Dengan Radius {{$params['jrds']}} KM
+			            @endif
 			        </div>
 				@endif
 			</div>
