@@ -46,7 +46,7 @@
 	                <label class="control-label">Harga</label>
 	                <select name="harga" class="form-control filter">
 	                    <option value="">Pilih Range Harga</option>
-	                    <option @if(isset($params['harga'])) @if($params['harga'] == 1) selected @endif @endif value="1">< 500.000</option>
+	                    <option @if(isset($params['harga'])) @if($params['harga'] == 1) selected @endif @endif value="1"><= 500.000</option>
 	                    <option @if(isset($params['harga'])) @if($params['harga'] == 2) selected @endif @endif value="2">500.001-1.000.000</option>
 	                    <option @if(isset($params['harga'])) @if($params['harga'] == 3) selected @endif @endif value="3">> 1.000.000</option>
 	                </select>
