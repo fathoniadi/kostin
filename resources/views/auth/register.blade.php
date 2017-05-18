@@ -28,10 +28,10 @@
 			        <input type="password" class="form-control" placeholder="Konfirmasi Password" name="konfirmasi">
 			        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 	      		</div>
-	      		<div class="form-group has-feedback">
-			        <input type="text" class="form-control" placeholder="Captcha" name="">
-			        <span class="glyphicon form-control-feedback"></span>
-	      		</div>
+	      		<!-- <div class="form-group has-feedback">
+	      					        <input type="text" class="form-control" placeholder="Captcha" name="">
+	      					        <span class="glyphicon form-control-feedback"></span>
+	      		</div> -->
 		      	<div class="row">
 		        <!-- /.col -->
 		        	<div class="col-xs-4">
