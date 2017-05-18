@@ -19,7 +19,7 @@
 </head>
 <body class="hold-transition skin-red-light sidebar-mini">
 <div class="wrapper">
-	<header class="main-header">
+	<header class="main-header" style="position: fixed;">
 		<div class="logo">
 			<a onclick="window.history.back(-1);" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
 	        <a href="{{ url('/') }}" class="" style="color: white">
@@ -28,8 +28,8 @@
 		</div>
 		@yield('navbar')
 	</header>
-	<aside class="main-sidebar" >
-		<section class="sidebar">
+	<aside class="main-sidebar" style="position: fixed;" >
+		<section class="sidebar" style="">
 			@yield('sidebar')
 		</section>
 	</aside>

@@ -6,7 +6,7 @@
 
 @section('navbar')
 	<!-- Header Navbar: style can be found in header.less -->
-	<nav class="navbar navbar-static-top">
+	<nav class="navbar navbar-fixed-top">
 		<!-- Sidebar toggle button-->
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
@@ -111,7 +111,7 @@
 			Hasil Pencarian
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+			<li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i>Home</a></li>
 			<li><a href="#">Hasil Pencarian</a></li>
 		</ol>
 	</section>
