@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label">Ketersediaan</label>
+                                        <label class="control-label">Jumlah Kamar yang Tersedia</label>
                                         <input type="text" name="ketersediaan" value="{{$kamar->jumlah_kamar}}" class="form-control" placeholder="Ketersediaan">
                                     </div>
                                     <div class="form-group">

@@ -71,7 +71,7 @@
                           <label class="control-label"><input type="checkbox" id="radius" name="radius" value="1"> Pencarian berdasarkan lokasi terdekat</label>
                       </div>
                       <div id="fieldRadius" class="form-group hidden">
-                          <label class="control-label">Radius</label>
+                          <label class="control-label">Radius (km)</label>
                           <input type="text" class="form-control" name="jrds" value="10" placeholder="Radius (km)">
                       </div>
               </div>

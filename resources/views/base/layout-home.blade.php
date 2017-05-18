@@ -24,6 +24,9 @@
         <ul class="nav navbar-nav">
 
           @if(Auth::user())
+            <li>
+              <a href="{{ url('/dashboard') }}" title="">Dashboard</a>
+            </li>
             <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="user-image" alt="User Image">
@@ -38,11 +41,14 @@
                 </p>
               </li>
               <li class="user-footer">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <a href="{{url('/datadiri')}}" class="btn btn-default btn-flat">Data Diri</a>
                 </div>
-                <div class="col-md-6">
-                  <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
+                <div class="col-md-4">
+                  <a href="{{url('/dashboard')}}" class="btn btn-default btn-flat">Dashboard</a>
+                </div>
+                <div class="col-md-4">
+                  <a href="{{url('/logout')}}" class="btn btn-danger btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
