@@ -54,7 +54,7 @@
 	                        	</div>
 	                    	</div>
 	                    	@endif
-	                    	<div class="col-md-12 w3-panel w3-border-top w3-border-bottom w3-panel w3-padding-large">
+	                    	<div class="col-md-12 w3-panel w3-border-top w3-panel w3-padding-large">
 	                    	<div class="col-md-6">
 	                            
 	                            <h4 style="margin-top: 30px"><u>Fasilitas</u></h4>
