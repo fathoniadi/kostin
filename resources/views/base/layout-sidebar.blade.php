@@ -19,7 +19,11 @@
 </head>
 <body class="hold-transition skin-red-light sidebar-mini">
 <div class="wrapper">
+<<<<<<< Updated upstream
 	<header class="main-header" style="position: fixed;">
+=======
+	<header class="main-header">
+>>>>>>> Stashed changes
 		<div class="logo">
 			<a onclick="window.history.back(-1);" class="pull-left" style="color: white"><i class="fa fa-chevron-left" style="font-size: 20px; font-weight: bolder;"></i></a>
 	        <a href="{{ url('/') }}" class="" style="color: white">
@@ -28,8 +32,13 @@
 		</div>
 		@yield('navbar')
 	</header>
+<<<<<<< Updated upstream
 	<aside class="main-sidebar" style="position: fixed;" >
 		<section class="sidebar" style="">
+=======
+	<aside class="main-sidebar" >
+		<section class="sidebar">
+>>>>>>> Stashed changes
 			@yield('sidebar')
 		</section>
 	</aside>
@@ -37,11 +46,15 @@
 		@yield('content')
 	</div>
 	<footer class="main-footer">
+<<<<<<< Updated upstream
 		<div class="pull-right hidden-xs">
 			<b>IMK</b> E
 		</div>
 		<strong>Copyright &copy; 2017 <a>Kost.in</a>.</strong> All rights
 		reserved.
+=======
+		<strong>Interaksi Manusia dan Komputer E</strong> oleh kelompok 4
+>>>>>>> Stashed changes
 	</footer>
 	<div class="control-sidebar-bg"></div>
 </div>
