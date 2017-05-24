@@ -23,7 +23,7 @@
 					<!-- general form elements -->
 					<div class="box box-primary" style="padding: 10px">
 						<div class="box-header">
-							<div class="">
+							<div class="w3-panel w3-border-bottom">
 								<h5>Gender:  
 								@if ($kamar->gender_kamar==1)
 									Laki-laki
