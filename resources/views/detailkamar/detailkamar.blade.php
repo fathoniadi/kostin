@@ -16,14 +16,15 @@
 
 		<!-- Main content -->
 		<section class="content">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 			<div class="row">
 				<!-- left column -->
 				<div class="col-md-12">
 					<!-- general form elements -->
 					<div class="box box-primary" style="padding: 10px">
 						<div class="box-header">
-							<div class="box-header with-border">
-								<h5>Kost 
+							<div class="w3-panel w3-border-bottom">
+								<h5>Gender:  
 								@if ($kamar->gender_kamar==1)
 									Laki-laki
 								@elseif($kamar->gender_kamar==2)
@@ -31,9 +32,9 @@
 								@else
 									Campur
 								@endif</h5>
-								<h3>Kost {{$kamar->owner->nama_pengguna}}</h3>
+								<h3 style="margin-top: 0">Kost {{$kamar->nama_kamar}}</h3>
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-8 w3-panel w3-padding-32">
 								<div class="col-md-6 pull-right">
 	                    	    	@if($kamar->medias->count())
 	                                	<embed id="gambar-large" src="{{ url($kamar->medias[0]->path_media.$kamar->medias[0]->nama_media) }}" class="img-responsive img-thumbnail" alt="">
@@ -53,11 +54,11 @@
 	                        	</div>
 	                    	</div>
 	                    	@endif
-	                    	<div class="col-md-12 box-header with-border">
+	                    	<div class="col-md-12 w3-panel w3-border-top w3-panel w3-padding-large">
 	                    	<div class="col-md-6">
-	                            <h3 style="margin-top: 0">Kamar Kost {{$kamar->nama_kamar}}</h3>
-	                            <h4 style="margin-top: 0"><u>Fasilitas</u></h4>
-	                           <div class="row">
+	                            
+	                            <h4 style="margin-top: 30px"><u>Fasilitas</u></h4>
+	                           <div class="row" style="margin: 16px 0px 0px 16px">
 					                                @php
 													$fasilitas = [];
 														if($kamar->tv==1)
@@ -110,7 +111,7 @@
 					                                    </div>
 					                                </div>
 	                        </div>
-	                        <div class="col-md-4">
+	                        <div class="col-md-4 pull-right">
 	                        	<div class="col-md-12">
 		                            <h4 @if ($kamar->jumlah_kamar==0)
 		                            	style="color: orange" 
@@ -132,12 +133,13 @@
 	                    	</div>
 	                		<div class="clearfix"></div>
 	                    </div>
-	                    <div class="col-md-12 box-header with-border">
-	                    	<div class="col-md-6">
+	                    <div class="col-md-12 w3-panel w3-padding-large">
+	                    	<div class="col-md-8">
 	                            <h3 style="margin-top: 0">Deskripsi Kamar Kost</h3>
 	                            <div class="row">
 	                                <div class="col-md-4">
-	                                    <div class="form-group">                              
+	                                    <div class="form-group">
+	                                    	<h4>Pemilik: {{$kamar->owner->nama_pengguna}}</h4>                              
 	                            	        <p>Alamat  : {{$kamar->alamat_kamar}}</p>
 	                            	        <p>No Telepon : {{$kamar->owner->no_tlp_pengguna}}</p>
 	                                    </div>
