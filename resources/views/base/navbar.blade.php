@@ -11,12 +11,9 @@
 		<ul class="nav navbar-nav">
 			<!-- User Account: style can be found in dropdown.less -->
 			@if(Auth::user())
-<<<<<<< Updated upstream
 			<li>
 				<a href="{{ url('/dashboard') }}" title="">Dashboard</a>
 			</li>
-=======
->>>>>>> Stashed changes
 			<li class="dropdown user user-menu">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="user-image" alt="User Image">
@@ -24,36 +21,20 @@
 				</a>
 				<ul class="dropdown-menu">
 					<!-- User image -->
-<<<<<<< Updated upstream
 
 					<li class="user-header">
 						<img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="img-circle" alt="User Image">
-
-=======
-					<li class="user-header">
-						<img src="{{URL::asset('/img/boxed-bg.jpg')}}" class="img-circle" alt="User Image">
-
->>>>>>> Stashed changes
 						<p>
 							{{Auth::user()->email}}
 						</p>
 					</li>
 					<!-- Menu Footer-->
 					<li class="user-footer">
-<<<<<<< Updated upstream
-
-						<div class="col-md-6">
-							<a href="{{url('/datadiri')}}" class="btn btn-default ">Data Diri</a>
-						</div>
-						<div class="col-md-6">
-							<a href="{{url('/logout')}}" class="btn btn-danger ">Sign out</a>
-=======
 						<div class="col-md-6">
 							<a href="{{url('/datadiri')}}" class="btn btn-default btn-flat">Data Diri</a>
 						</div>
 						<div class="col-md-6">
 							<a href="{{url('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
->>>>>>> Stashed changes
 						</div>
 					</li>
 				</ul>

@@ -43,15 +43,11 @@
 	</div>
 	<!-- /.content-wrapper -->
 	<footer class="main-footer">
-<<<<<<< Updated upstream
 		<div class="pull-right hidden-xs">
 			<b>IMK</b> E
 		</div>
 		<strong>Copyright &copy; 2017 <a>Kost.in</a>.</strong> All rights
 		reserved.
-=======
-		<strong>Interaksi Manusia dan Komputer E</strong> oleh kelompok 4
->>>>>>> Stashed changes
 	</footer>
 
 	<!-- Control Sidebar -->
