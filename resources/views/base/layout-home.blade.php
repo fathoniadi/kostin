@@ -59,7 +59,7 @@
       </div>
     </nav>
   </header>
-<<<<<<< Updated upstream
+
     <div class="content-wrapper" style="background-image: url('{{URL::asset("/img/kos1.jpg")}}');background-size: cover; background-position: center; ">
     </div>
   @yield('content')
@@ -70,14 +70,6 @@
       <strong>Copyright &copy; 2017 <a>Kost.in</a>.</strong> All rights
       reserved.
     </footer>
-
-  
-  
-=======
-  <div class="content-wrapper" style="background-image: url('{{URL::asset("/img/kos.jpg")}}');background-size:cover; background-attachment:fixed">
-  @yield('content')
-</div>
->>>>>>> Stashed changes
 
 <script src="{{URL::asset('/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 <script src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
